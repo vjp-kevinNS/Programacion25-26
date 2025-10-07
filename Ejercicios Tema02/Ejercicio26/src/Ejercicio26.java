@@ -7,10 +7,10 @@ import java.util.Scanner;
 public class Ejercicio26 {
  
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in);
         
         System.out.print("Por favor, introduzca un numero de 4 cifras: ");
-        int numero = sc.nextInt();
+        int numero = entrada.nextInt();
         
         int cifraUno = (numero / 1000);
         int cifraDos = (numero / 100) % 10;
