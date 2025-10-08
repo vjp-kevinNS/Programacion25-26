@@ -27,7 +27,7 @@ public class Ejercicio3T3 {
 
         System.out.println("El número mayor de los introducidos es el " + mayor);
 
-        entrada.close();
+        entrada.close(); //Cerramos entrada
     }
     
 }
