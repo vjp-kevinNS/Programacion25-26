@@ -23,7 +23,6 @@ public class Ejercicio4T3 {
 
         System.out.println("El número menor de los introducidos es el " + menor);
 
-        entrada.close(); //Cerramos entrada
     }
     
 }

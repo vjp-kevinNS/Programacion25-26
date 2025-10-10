@@ -25,8 +25,6 @@ public class Ejercicio2T3 {
             System.out.println("El primer número es igual a 10, el resultado es 0.");
         }
         System.out.println("La operación que se realizó es suma o producto y el resultado es: " +resultado);
-        
-        entrada.close();
        
     }
     

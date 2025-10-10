@@ -16,8 +16,7 @@ public class Ejercicio5T3 {
         }else {
             System.out.println("El número " + numero + " Es IMPAR");
         }
-        
-        entrada.close();
+
     }
     
 }

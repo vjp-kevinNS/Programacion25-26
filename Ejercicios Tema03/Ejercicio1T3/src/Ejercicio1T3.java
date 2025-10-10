@@ -18,9 +18,6 @@ public class Ejercicio1T3 {
         } else  {           //si no es mayor ni menor entonces es 0
             System.out.println("El número introducido es cero.");
         }
-
-        entrada.close(); //cierra el lector de teclado
-        
         
     }
     
