@@ -25,7 +25,7 @@ public class Ejercicio32 {
       numero = numero %2;
       int moneda1 = numero;
       numero = numero &2;
-        System.out.println();
+      
         System.out.println(original+ " se descompone en: " +billetes50+ " billetes de 50, "
         +billetes20+ " billetes de 20, " +billetes10+ " billetes de 10, " +billetes5+ " billetes de 5, "
         +moneda2+ " monedas de 2, " +moneda1+ " monedas de 1 ");
