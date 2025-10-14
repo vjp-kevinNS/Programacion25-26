@@ -1,6 +1,6 @@
 /**
  *
- * @author alumno
+ * @author kevinNS
  */
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ public class Ejercicio21 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("por favor introduzca un numero en segundos: ");
+        System.out.print("por favor introduzca un numero en segundos: "); //Pedimos al usuario que introduzcamos un número
         int totalSegundos = sc.nextInt();
 
         int dias = totalSegundos / 86400;          // 1 día = 86400 segundos
