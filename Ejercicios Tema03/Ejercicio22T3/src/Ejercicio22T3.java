@@ -22,7 +22,7 @@ public class Ejercicio22T3 {
             resultado = num1 + num2; //El resultado es el num1 mas el num2
             System.out.println("Resultado: " + resultado);
         }
-        catch (InputMismatchException e){ //He usado esto por un error que me ha dado y sel una excepcion lo puse aquí
+        catch (InputMismatchException e){ //He usado esto por un error que me ha dado y al ser una excepcion lo puse aquí
             System.out.println("Error por no haber introducido un número; ");
         }
         
