@@ -16,7 +16,7 @@ public class Ejercicio9T3 {
         System.out.println("Por último, introduzca un cuarto número"); //Se muestra el cuarto número
       int numero4 = entrada.nextInt(); //Guardamos el cuarto número
       
-      if (numero1 )
+      if (numero1)
     }
     
 }

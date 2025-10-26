@@ -3,9 +3,14 @@ package Metodoimp;
 /**
  *
  * @author kevinNS
- */ //Queremos que el método imprima el menor de los introducidos
+ */ 
 public class Metodoimp {
-
+/**
+ * @param num1
+ * @param num2
+ * @param num3 
+ *///Queremos que el método imprima el menor de los introducidos
+    
     public static void mostrarMenor(int num1, int num2, int num3) {
         int menor;
         
