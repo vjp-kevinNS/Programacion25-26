@@ -45,7 +45,7 @@ public class ContadorNumeros {
      * @param num
      */
     public static void mostrarNum(int num) {
-        for (int i = 1; i <= num; i++) {
+        for (int i = 0; i <= num; i = i++) {
             System.out.println(i);
         }
 
