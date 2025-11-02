@@ -121,6 +121,11 @@ public class MetodosEstaticos {
         num2 = Utilidades.pedirNumero();
 
         System.out.println(num1 + "-" + num2);
+        
+        //Aqui haremos el string para pedir letra asi no entra en conflicto con las demás operaciones
+        String letra = Utilidades.letraAleatoria();
+        System.out.println("Letra aleatoria " + letra);
+        
 
         //Llamamos a los métodos, guardamos al resultado en una variable 
         //y mostramos dicha variable
