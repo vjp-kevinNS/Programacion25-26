@@ -7,12 +7,12 @@ import java.util.InputMismatchException;
  */
 public class Utilidades {
     // Método que pide un número al usuario
-    public static int pedirNumero() {
-        int num = 1;
+    public static double pedirNumero() {
+        double num = 1;
         try {
         Scanner entrada = new Scanner(System.in);
         System.out.print("Escribe un número: ");
-        num = entrada.nextInt();
+        num = entrada.nextDouble();
         }catch(InputMismatchException e) {
             System.out.println("Has introducido un valor no válido");
         }
