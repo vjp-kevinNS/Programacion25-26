@@ -1,6 +1,7 @@
 /**
  *Crear una clase llamada Constantes que
  *contenga, únicamente, la declaración de 3 constantes estáticas
+ * 
  * @author KevinNS
  */
 public class Constantes {

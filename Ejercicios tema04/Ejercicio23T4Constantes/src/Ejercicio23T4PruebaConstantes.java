@@ -2,6 +2,7 @@ import java.util.Scanner; //Importamos Scanner
 /**
  *crear otra clase que en su método main imprima por
  *pantalla el valor de las 3 constantes declaradas.
+ * 
  * @author KevinNS
  */
 public class Ejercicio23T4PruebaConstantes {
