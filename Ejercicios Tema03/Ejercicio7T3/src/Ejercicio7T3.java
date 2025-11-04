@@ -26,7 +26,7 @@ public class Ejercicio7T3 {
             case 7:
                 laborable = false;
         }
-        if (laborable == true);{
+        if (laborable == true){
             System.out.println("Día laborable");
         }else  {
         System.out.println("Fin de semana");

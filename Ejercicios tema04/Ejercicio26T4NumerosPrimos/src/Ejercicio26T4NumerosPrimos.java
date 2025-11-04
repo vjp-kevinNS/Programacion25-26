@@ -13,7 +13,7 @@ public class Ejercicio26T4NumerosPrimos {
  * @return si el numero es primo o no
  */
     public static boolean esPrimo(int numero) {
-        int divisor;  //Esta variable la usaremos para saber si el numero original se puede dividir sin dejar resto
+        int divisor = 2;  //Esta variable la usaremos para saber si el numero original se puede dividir sin dejar resto
         boolean primo = true; //Esta variable la usaremos para que nos muestre el resultado true o false
 
         if (numero < 2) {
@@ -21,10 +21,11 @@ public class Ejercicio26T4NumerosPrimos {
         } else if (numero == 2) {
             primo = true;
         } else {
-            for (divisor = 2; divisor <= (int) Math.sqrt(numero); divisor++) {
+            while (divisor <= (int) Math.sqrt(numero) && primo) {
                 if (numero % divisor == 0) {
                     primo = false;
                 }
+                divisor++;
             }
         }
         return primo;

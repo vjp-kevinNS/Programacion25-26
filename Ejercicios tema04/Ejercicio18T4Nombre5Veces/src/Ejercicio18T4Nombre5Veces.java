@@ -2,7 +2,8 @@
 import java.util.Scanner; //Importamos Scanner
 
 /**
- *
+ *Crear un programa que pida el nombre y
+ *a continuación te lo muestre 5 veces.
  * @author KevinNS
  */
 public class Ejercicio18T4Nombre5Veces {
