@@ -23,7 +23,7 @@ public class ClaseString {
         Scanner entrada = new Scanner(System.in);
         System.out.print("¿Cuál fue el trofeo que ganaste?: ");
         String trofeos = entrada.nextLine();
-        System.out.println("Has ganado el trofeo " + trofeos);
+        System.out.print("Has ganado el trofeo " + trofeos);
 
         //Comparar dos valores ( .equals() e .equalIgnoreCse() )
         if (nombre.equals(nombre)) {
