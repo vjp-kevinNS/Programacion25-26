@@ -132,6 +132,9 @@ public class Coche {
         System.out.println("Velocidad: " + this.velocidad);
         System.out.println("Motor encendido: " + this.motorEncendido);
     }
+    
+    //Creamos el TO STRING
+    
 }
     
 
