@@ -2,7 +2,7 @@
 import java.util.Scanner; //Importamos Scanner
 
 /**
- * Aquío crearemos los atributos y los métodos
+ * Aquí crearemos los atributos y los métodos
  *
  * @author KevinNS
  */
