@@ -2,7 +2,8 @@
 import java.util.Scanner; //Importamos Scanner
 
 /**
- *Aquío crearemos los atributos y los métodos 
+ * Aquío crearemos los atributos y los métodos
+ *
  * @author KevinNS
  */
 public class Coche {
@@ -118,13 +119,13 @@ public class Coche {
             if (this.velocidad < 0) {
                 this.velocidad = 0; //Así no nos dá velocidad negativa        
             }
-        System.out.println("El coche ha frenado. Su velocidad es: " + this.velocidad);    
-        }else {
+            System.out.println("El coche ha frenado. Su velocidad es: " + this.velocidad);
+        } else {
             System.out.println("No se puede frenar. El motor está apagado");
         }
-    } 
-    
-    public void mostrarEstado(){
+    }
+
+    public void mostrarEstado() {
         System.out.println("Estado del coche:");
         System.out.println("Marca: " + this.marca);
         System.out.println("Modelo: " + this.modelo);
@@ -132,9 +133,12 @@ public class Coche {
         System.out.println("Velocidad: " + this.velocidad);
         System.out.println("Motor encendido: " + this.motorEncendido);
     }
-    
-    //Creamos el TO STRING
-    
-}
-    
 
+    //Creamos el TO STRING
+    @Override
+    public String toString() {
+        return "Mi coche es de la marca: " + this.marca + "El modelo es: "
+                + this.modelo + "Es de color: " + this.color + "Su velocidad ahora mismo: "
+                + this.velocidad + " y su motor ahora mismo está: " + this.motorEncendido;
+    }
+}

@@ -63,7 +63,7 @@ public class Coche {
        System.out.println("Girando coche...");
    }
     
-    //4. TO STRING: devuelve un String con lso datos del objeto
+    //4. TO STRING: devuelve un String con los datos del objeto
     @Override
     public String toString(){
         return "Mi coche tiene ruedas " + this.ruedas + " suspensión " + this.suspension + " y " + this.espejos + " espejos ";
