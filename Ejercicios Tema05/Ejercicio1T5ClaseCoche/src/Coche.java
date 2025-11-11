@@ -75,35 +75,52 @@ public class Coche {
     }
 
     //Creamos los métodos públicos
+    
+    /**
+     * Método que establece la marca
+     * @param marca 
+     */
     public void establecerMarca(String marca) {
         this.marca = marca;
         System.out.println("Esta es la marca: " + this.marca);
     }
-
+    /**
+     * Método que establece el modelo
+     * @param modelo 
+     */
     public void establecerModelo(String modelo) {
         this.modelo = modelo;
         System.out.println("Este es el modelo: " + this.modelo);
     }
-
+    /**
+     * Método que establece el color
+     * @param color 
+     */
     public void establecerColor(String color) {
         this.color = color;
         System.out.println("Su color es: " + this.color);
     }
-
+    /**
+     * Método que arranca el coche
+     */
     public void arrancarCoche() {
         this.motorEncendido = true;
         this.velocidad = 10;
         System.out.println("El coche ha arrancado " + this.motorEncendido
                 + " su velocidad es " + this.velocidad);
     }
-
+    /**
+     * Método que apaga el coche
+     */
     public void apagarCoche() {
         this.motorEncendido = false;
         this.velocidad = 0;
         System.out.println("El coche está apagado " + this.motorEncendido
                 + " su velocidad es: " + this.velocidad);
     }
-
+    /**
+     * Método que acelera el coche
+     */
     public void acelerarCoche() {
         if (this.motorEncendido) {
             this.velocidad += 20;
@@ -112,7 +129,9 @@ public class Coche {
             System.out.println("No se puede acelerar. El motor está apagado");
         }
     }
-
+    /**
+     * Método que frena el coche
+     */
     public void frenarCoche() {
         if (this.motorEncendido) {
             this.velocidad -= 6;
@@ -124,7 +143,9 @@ public class Coche {
             System.out.println("No se puede frenar. El motor está apagado");
         }
     }
-
+    /**
+     * Método que muestra el estado del coche
+     */
     public void mostrarEstado() {
         System.out.println("Estado del coche:");
         System.out.println("Marca: " + this.marca);

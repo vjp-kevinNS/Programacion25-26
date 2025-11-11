@@ -63,24 +63,43 @@ public class Curso {
     }
 
     //Creamos los métodos públicos
+    
+    /**
+     * Método que establece el nombre y las hroas del curso
+     * @param nombre
+     * @param numeroHoras 
+     */
     public void establecerNombreyHoras(String nombre, int numeroHoras) {
         this.nombre = nombre;
         this.numeroHoras = numeroHoras;
     }
-
+    /**
+     * Método que nos dá el nombre del curso
+     * @return el nombre del curso
+     */
     public String obtenerNombre() {
         return this.nombre;
     }
-
+    /**
+     * Método que nos dá las horas del curso
+     * @return las horas del curso
+     */
     public int obtenerHoras() {
         return this.numeroHoras;
     }
 
     //Creamos los métodos estáticos
+    
+    /**
+     * Método que suma los cursos
+     */
     public static void sumarCursos() {
         numeroDeCursos++;
     }
-
+    /**
+     * Método para ver el número de cursos
+     * @return 
+     */
     public static int verNumeroCursos() {
         return numeroDeCursos;
     }
