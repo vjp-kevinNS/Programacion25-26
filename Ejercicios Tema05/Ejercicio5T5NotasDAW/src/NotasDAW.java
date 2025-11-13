@@ -39,7 +39,7 @@ public class NotasDAW {
     }
 
     //Creamos el método para calcular la nota media del curso ya que el método
-    //al que se le pasa la nota lo tenemos el sel setNota
+    //al que se le pasa la nota lo tenemos en el setter setNota
     public static double calcularMedia(double n1, double n2, double n3, double n4, double n5, double n6) {
         return (n1 + n2 + n3 + n4 + n5 + n6) / 6;
     }

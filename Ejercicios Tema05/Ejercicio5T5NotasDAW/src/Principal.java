@@ -21,7 +21,6 @@ public class Principal {
 
         //Pedimos las notas al usuario
         Scanner entrada = new Scanner(System.in);
-        double nota = entrada.nextDouble();
         System.out.println("Introduce la nota de " + sistemasInformaticos.getNombre() + " : ");
         sistemasInformaticos.setNota(entrada.nextDouble());
 
@@ -39,11 +38,13 @@ public class Principal {
 
         System.out.println("Introduce la nota de " + ingles.getNombre() + " : ");
         ingles.setNota(entrada.nextDouble());
-        
+
         //Calculamos la media usando el método
-        double media = NotasDAW.calcularMedia(
-                sistemasInformaticos.getNota(),
-                baseDeDatos.calcularMedia()
-                
+        double media = NotasDAW.calcularMedia(sistemasInformaticos.getNota(),
+                baseDeDatos.getNota(), programacion.getNota(), entornoDeDesarrollo.getNota(),
+                lenguajesDeMarca.getNota(), ingles.getNota());
+        
+        //Mostramos la nota media resultante
+        System.out.println("Esta es la nota media del curso " + media);
     }
 }
