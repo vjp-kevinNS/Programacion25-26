@@ -29,17 +29,41 @@ public class Numeros {
     
     //Creamos los métodos
     
+    /**
+     * Método que nos dice si el númnero es par o impar
+     */
+    public void esParOImpar() {
+        if (this.valor % 2 == 0) {
+            System.out.println("El número " + this.valor + " es par.");
+        } else {
+            System.out.println("El número " + this.valor + " es impar.");
+        }
+    }
     
+    /**
+     * Método que compara cual es mayor que otro
+     * @param otro
+     * @return el número mayor
+     */
+    public boolean esMayorQue(Numeros otro) {
+        return this.valor > otro.valor;
+    }
     
-    
-    
+    /**
+     * Método que compara cual es menor que otro
+     * @param otro
+     * @return el número menor
+     */
+    public boolean esMenorQue(Numeros otro) {
+        return this.valor < otro.valor;
+    }
     
     
     //Creamos To String
 
     @Override
     public String toString() {
-        return 
+        return "Valor del número: " + this.valor;
     }
     
     
