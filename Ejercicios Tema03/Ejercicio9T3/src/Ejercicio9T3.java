@@ -16,7 +16,13 @@ public class Ejercicio9T3 {
         System.out.println("Por último, introduzca un cuarto número"); //Se muestra el cuarto número
       int numero4 = entrada.nextInt(); //Guardamos el cuarto número
       
-      if (numero1)
+        int mayor = numero1;
+
+        if (numero2 > mayor) mayor = numero2;
+        if (numero3 > mayor) mayor = numero3;
+        if (numero4 > mayor) mayor = numero4;
+
+        System.out.println("El número mayor es: " + mayor);
     }
     
 }
