@@ -1,19 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-
 /**
- *
+ *  La clase Test contendrá los métodos estáticos necesarios para controlar
+    que el usuario introduzca los datos correctos. Además, contiene el
+    método main donde se crearán 2 objetos de la clase Servidor y 2 de la
+    clase Portátil mediante un constructor que reciba los parámetros.
+    También se crearán 1 objetos de la clase Servidor y 1 de la clase Portátil
+    mediante el constructor por defecto, por lo que necesitarás llamar
+    posteriormente a los métodos “establecer…” para asignar los valores que
+    te indique el usuario a los atributos del objeto.
+    Por último, muestra los datos de los 6 objetos creados.
+ * 
  * @author KevinNS
  */
 public class Test {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
     
 }
