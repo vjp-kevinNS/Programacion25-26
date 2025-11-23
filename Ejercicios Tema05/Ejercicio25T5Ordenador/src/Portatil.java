@@ -1,33 +1,35 @@
+
 /**
  *  La subclase Portátil contiene los siguientes atributos: marca, tamaño de
-    pantalla y peso
- * 
+ * pantalla y peso
+ *
  * @author KevinNS
  */
 public class Portatil extends Ordenador {
-    
+
     //Creamos los atributos
     private String marcaPortatil;
     private int pantallaPortatil;
     private int pesoPortatil;
-    
+
     //Creamos los constructores por defecto
-    public Portatil(){
+    public Portatil() {
         super();
         this.marcaPortatil = "";
         this.pantallaPortatil = 0;
         this.pesoPortatil = 0;
     }
+
     //Creamos los constructores con sus parámetros
-    public Portatil(String marcaPortatil, int pantallaPortatil, int pedoPortatil){
-        super();
+    public Portatil(int memoriaRam, int discoDuro, String modeloProcesador, String modeloGrafica,
+            double precio, String marcaPortatil, int pantallaPortatil, int pesoPortatil) {
+        super(memoriaRam, discoDuro, modeloProcesador, modeloGrafica, precio);
         this.marcaPortatil = marcaPortatil;
         this.pantallaPortatil = pantallaPortatil;
         this.pesoPortatil = pesoPortatil;
     }
-    
-    //Creamos los getter y setter
 
+    //Creamos los getter y setter
     public String getMarcaPortatil() {
         return marcaPortatil;
     }
@@ -51,14 +53,13 @@ public class Portatil extends Ordenador {
     public void setPesoPortatil(int pesoPortatil) {
         this.pesoPortatil = pesoPortatil;
     }
-    
-    //Creamos To String
 
+    //Creamos To String
     @Override
     public String toString() {
-        return "El portatil es de la marca: " + this.marcaPortatil +
-                ", el tamaño de su pantalla es: " + this.pantallaPortatil +
-                " y el peso del portatil es: " + this.pesoPortatil;
+        return "El portatil es de la marca: " + this.marcaPortatil
+                + ", el tamaño de su pantalla es: " + this.pantallaPortatil
+                + " y el peso del portatil es: " + this.pesoPortatil;
     }
-    
+
 }

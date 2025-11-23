@@ -1,6 +1,6 @@
 
 /**
- *  La superclase Ordenador contiene los siguientes atributos: cantidad de memoria
+ * La superclase Ordenador contiene los siguientes atributos: cantidad de memoria
  * RAM, capacidad del disco duro, modelo de procesador, modelo de tarjeta gráfica y
  * precio. A la hora de que el usuario cree un objeto, en la clase Test, deberemos
  * controlar que la capacidad del disco duro sea múltiplo de 5, el modelo de
@@ -13,23 +13,26 @@ public class Ordenador {
     //Creamos los atributos
     private int memoriaRam;
     private int discoDuro;
+    private String modeloProcesador;
     private String modeloGrafica;
-    private int precioGrafica;
+    private double precio;
 
     //Creamos los constructores por defecto
     public Ordenador() {
         this.memoriaRam = 0;
         this.discoDuro = 0;
+        this.modeloProcesador = "";
         this.modeloGrafica = "";
-        this.precioGrafica = 0;
+        this.precio = 0;
     }
 
     //Creamos los constructores con sus parámetros
-    public Ordenador(int memoriaRam, int discoDuro, String modeloGrafica, int precioGrafica) {
+    public Ordenador(int memoriaRam, int discoDuro, String modeloProcesador, String modeloGrafica, double precio) {
         this.memoriaRam = memoriaRam;
         this.discoDuro = discoDuro;
+        this.modeloProcesador = modeloProcesador;
         this.modeloGrafica = modeloGrafica;
-        this.precioGrafica = precioGrafica;
+        this.precio = precio;
     }
 
     //Creamos los getter y setter
@@ -57,21 +60,32 @@ public class Ordenador {
         this.modeloGrafica = modeloGrafica;
     }
 
-    public int getPrecioGrafica() {
-        return precioGrafica;
+    public String getModeloProcesador() {
+        return modeloProcesador;
     }
 
-    public void setPrecioGrafica(int precioGrafica) {
-        this.precioGrafica = precioGrafica;
+    public void setModeloProcesador(String modeloProcesador) {
+        this.modeloProcesador = modeloProcesador;
     }
+    
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    
 
     //Creamos To String
     @Override
     public String toString() {
         return "Cantidad de memoria RAM: " + this.memoriaRam
                 + " ,la capacidad del disco duro es de: " + this.discoDuro
-                + " ,el modelo de la tarjeta Gráfica es: " + this.modeloGrafica
-                + " y su precio es de: " + this.precioGrafica;
+                + ", el modelo del procesador es: " + this.modeloProcesador 
+                + ", el modelo de la tarjeta Gráfica es: " + this.modeloGrafica
+                + " y su precio es de: " + this.precio;
 
     }
 
