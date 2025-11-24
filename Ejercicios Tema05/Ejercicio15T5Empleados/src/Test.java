@@ -10,9 +10,9 @@ public class Test {
     public static void main(String[] args) {
 
         //Creamos los objetos, primero para las direcciones
-        Direccion direccion1 = new Direccion();
-        Direccion direccion2 = new Direccion();
-        Direccion direccion3 = new Direccion();
+        Direccion direccion1 = new Direccion("Frederic Mistral", 23, 56, "Plasencia");
+        Direccion direccion2 = new Direccion("Garcia Lorca", 53, 89, "Plasencia");
+        Direccion direccion3 = new Direccion("Antonio Machado", 3, 6, "Plasencia");
 
         //Ahora creamos los objetos de los empleados
         Empleado empleado1 = new Empleado("Kevin", 1500, direccion1);
