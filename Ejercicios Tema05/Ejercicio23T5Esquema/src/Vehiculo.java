@@ -50,7 +50,7 @@ public class Vehiculo {
         this.potencia = potencia;
     }
     
-    //Creamso To String
+    //Creamos To String
 
     @Override
     public String toString() {

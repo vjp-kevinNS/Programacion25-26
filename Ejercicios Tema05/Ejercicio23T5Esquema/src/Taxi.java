@@ -9,7 +9,7 @@ public class Taxi extends Vehiculo{
     
     //Creamos los constructores por defecto
     public Taxi(){
-    super();
+        super();
         this.numeroLicencia = 0;
         
     }
