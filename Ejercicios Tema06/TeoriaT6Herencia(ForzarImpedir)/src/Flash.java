@@ -9,7 +9,7 @@
  * 
  * @author KevinNS
  */
-public class Flash extends Superheroe {
+public class Flash extends Superheroe implements SuperVelocidad{
     // ATRIBUTOS
     private int velocidadMaxima;
 
@@ -48,6 +48,22 @@ public class Flash extends Superheroe {
         System.out.println("              //");
         System.out.println("             //");
         System.out.println("            /");
+    }
+    
+    // Métodos de la interfaz SuperVelocidad implementados
+    @Override
+    public void correrRapido(int velocidad) {
+        if(velocidad < velocidadMaxima) {
+            System.out.println("Flash: Estoy corriendo a " + velocidad + "km/h.");            
+        } else {
+            System.out.println("Flash: No puedo correr tan rápido.");
+            System.out.println("Mi velocidad máxima es " + velocidadMaxima);
+        }
+    }
+    
+    @Override
+    public void atravesarObjetos(String objeto) {
+        System.out.println("Flash: Estoy atravesando " + objeto + "...");
     }
 
     // TO STRING
