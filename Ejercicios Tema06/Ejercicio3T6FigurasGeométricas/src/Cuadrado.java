@@ -33,9 +33,7 @@ public class Cuadrado extends Rectangulo { //En este caso como area y perimetro
         this.longitud = longitud;
     }
     
-    // NOTA: En este caso no necesitamos sobrescribir calcularArea() 
-    // ni calcularPerimetro()porque los heredamos de Rectangulo por lo tanto
-    // no necesitamos crear ningún método
+ // corregir
     
     //Creamos To String
 

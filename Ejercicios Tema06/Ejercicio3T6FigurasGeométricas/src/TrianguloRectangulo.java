@@ -20,25 +20,7 @@ public class TrianguloRectangulo extends Triangulo{
         super(base, altura, color);
         
     }
-    
-    //Creamos los getter y setter
-
-    public double getBase() {
-        return base;
-    }
-
-    public void setBase(double base) {
-        this.base = base;
-    }
-
-    public double getAltura() {
-        return altura;
-    }
-
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-    
+     
     //Creamos el método propio, es decir, que no hereda de FiguraGeometrica
     
     /**
@@ -47,7 +29,7 @@ public class TrianguloRectangulo extends Triangulo{
      */
     public double calcularHipotenusa(){
         //Hipotenusa (Cateto1^2 + Cateto2^2 = Hipotenusa^2)
-        return Math.sqrt(Math.pow(base, 2) + Math.pow(altura, 2));
+        return Math.sqrt(Math.pow(getBase(), 2) + Math.pow(getAltura(), 2));
     }
     
     //En este caso ya si usamos el método de FiguraGeometrica con el Override
@@ -59,7 +41,7 @@ public class TrianguloRectangulo extends Triangulo{
     @Override
     public double calcularPerimetro(){
         // Perimetro = cateto + cateto + hipotenusa
-        return base + altura + calcularHipotenusa();
+        return getBase() + getAltura() + calcularHipotenusa();
     }
     
     // Creamos el método que nos dira si el triángulo recángulo es EQUILATERO
@@ -72,8 +54,8 @@ public class TrianguloRectangulo extends Triangulo{
      */
     public String tipoTriangulo(){
         
-        double lado1 = base;
-        double lado2 = altura;
+        double lado1 = getBase();
+        double lado2 = getAltura();
         
         //Creamos un if para la comparación
         if (lado1 == lado2) {

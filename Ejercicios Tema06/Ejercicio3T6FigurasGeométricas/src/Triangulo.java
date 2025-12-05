@@ -11,8 +11,8 @@ public abstract class Triangulo extends FiguraGeometrica {
     //Creamos los atributos usando protected para que TrianguloRectangulo
     //acceda directamente a ellos
     
-    protected double base;
-    protected double altura;
+    private double base;
+    private double altura;
     
     //Creamos el constructor por defecto añadiendo super
     public Triangulo(){
