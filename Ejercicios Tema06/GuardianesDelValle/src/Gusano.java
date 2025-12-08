@@ -12,6 +12,6 @@
  * 
  * @author Nullshade
  */
-public class Gusanos extends Malware{
+public class Gusano extends Malware{
     
 }
