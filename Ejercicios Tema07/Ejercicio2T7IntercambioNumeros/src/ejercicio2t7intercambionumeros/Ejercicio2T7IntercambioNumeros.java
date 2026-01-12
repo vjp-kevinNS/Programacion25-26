@@ -19,10 +19,13 @@ public class Ejercicio2T7IntercambioNumeros {
         
         // LLamamos al método para pedir los números
         introducirDatos(numeros);
+        System.out.println(""); // Salto de línea
         
+        System.out.println("NUMEROS INTRODUCIDOS");
         // LLamamos al método para mostrar los números antes del intercambio
         mostrarDatos(numeros);
         
+        System.out.println();
         // LLamamos al método para intercambiar los números
         intercambiarDatos(numeros);
         
@@ -73,11 +76,11 @@ public class Ejercicio2T7IntercambioNumeros {
      */
     public static void intercambiarDatos(int[] intercambiarNumeros){
         // Creamos una variable auxiliar para no perder el valor al sobreescribir
-        int aux = intercambiarNumeros[2];
-        intercambiarNumeros[2] = intercambiarNumeros[3];
+        int aux = intercambiarNumeros[1];
+        intercambiarNumeros[1] = intercambiarNumeros[3];
         intercambiarNumeros[3] = aux;
         
-        System.out.println(""); // Salto de línea
+        System.out.println("NUMEROS INTERCAMBIADOS"); // Salto de línea
         
     }
 
