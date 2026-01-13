@@ -68,7 +68,7 @@ public class Ejercicio9T7EnteroAlReves {
     public static void llenarArray(int num, int[] llenar){
         // Recorremos el array desde la ultima casilla hasta la primera para guardarlos en orden
         for (int i = llenar.length - 1; i >= 0; i--) {
-            llenar[i] = num % 10; // El resto de dividire por 10 nos dá la última cifra
+            llenar[i] = num % 10; // El resto de dividir por 10 nos dá la última cifra
             num = num / 10; // Reducimos el número para la siguiente vuelta
             
         }
