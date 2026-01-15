@@ -55,13 +55,35 @@ public class Ejercicio15T7MenuGestionVentas {
 
             switch (opcion) {
                 case 1:
-
+                    rellenarAleatorios(arrayVentas);
+                    System.out.println("Rellenando ventas...");
+                    break;
+                case 2:
+                    System.out.println("Mostrando ventas...");
+                    mostrarVentas(arrayVentas, nombresMeses);
+                    break;
+                case 3:
+                    System.out.println("Mostrando ventas al revés...");
+                    ventaAlReves(arrayVentas, nombresMeses);
+                    break;
+                case 4:
+                    System.out.println("Total anual: " + sumarVentasAnuales(arrayVentas));
+                    break;
+                case 5:
+                    System.out.println("Total meses pares: " + sumarMesesPares(arrayVentas));
+                    break;
+                case 6:
+                    System.out.println("Calculando mes con máximo de ventas...");
+                    calcularMesMaximo(arrayVentas, nombresMeses);
+                    break;
+                case 7:
+                    System.out.println("Saliendo del menú...");
                     break;
                 default:
-                    throw new AssertionError();
+                    System.out.println("Error. opción no valida.");
             }
 
-        } while (true);
+        } while (opcion != 7);
 
     }
 
@@ -72,7 +94,7 @@ public class Ejercicio15T7MenuGestionVentas {
      */
     public static void rellenarAleatorios(int[] aleatorio) {
         for (int i = 0; i < aleatorio.length; i++) {
-            aleatorio[i] = (int) (Math.random() * 91) + 10;
+            aleatorio[i] = (int) (Math.random() * 90 +1) + 10;
 
         }
     }
@@ -97,7 +119,7 @@ public class Ejercicio15T7MenuGestionVentas {
      * @param meses
      */
     public static void ventaAlReves(int[] ventas, String[] meses) {
-        for (int i = 0; i < meses.length; i--) {
+        for (int i = meses.length -1; i >= 0; i--) {
             System.out.println(meses[i] + " : " + ventas[i]);
 
         }
@@ -132,6 +154,28 @@ public class Ejercicio15T7MenuGestionVentas {
             
         }
         return sumaPares;
+    }
+    
+    /**
+     * OPCION 6. Método que muestra el mes con mayor ventas
+     * @param ventas
+     * @param meses 
+     */
+    public static void calcularMesMaximo(int[] ventas, String[] meses){
+        int ventasMaximas = ventas[0]; // Suponemos que Enero es el que mas ventas tiene de primeras
+        int posicionMax = 0; // Guardamos la posición para saber el nombre del mes
+        
+        for (int i = 0; i < ventas.length; i++) {
+            if (ventas[i] > ventasMaximas) { // Si el mes actual supera al mayor
+                ventasMaximas = ventas[i]; // Este es el nuevo valor máximo
+                posicionMax = i; // Guardamos su posición
+                
+            }
+        }
+        
+        // Usamos el indice encontrado para buscar el nombre en el OTRO array
+        System.out.println("El mes con mas ventas fue: " + meses[posicionMax] +
+                " con " + ventasMaximas + " coches.");
     }
     
     
