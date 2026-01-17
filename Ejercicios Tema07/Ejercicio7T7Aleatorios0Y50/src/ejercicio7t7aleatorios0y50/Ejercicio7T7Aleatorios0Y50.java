@@ -14,7 +14,7 @@ public class Ejercicio7T7Aleatorios0Y50 {
 
     public static void main(String[] args) {
         
-        // Creamos la matriz usando las constantes
+        // Creamos el array usando las constantes
         int[]numeros = new int[TOTAL];
         
         // LLamamos a los métodos
