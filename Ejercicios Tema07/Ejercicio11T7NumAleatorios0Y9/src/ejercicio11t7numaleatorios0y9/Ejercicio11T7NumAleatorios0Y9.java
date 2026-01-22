@@ -43,7 +43,6 @@ public class Ejercicio11T7NumAleatorios0Y9 {
             for (int i = 0; i < aleatorios.length; i++) {
                 if (aleatorios[i] == numero) {
                     repetido = true;
-                    break; // Si lo hemos encontrado dejamos de buscar
                 }
             }
             // Si el número no estaba repetido seguimos
