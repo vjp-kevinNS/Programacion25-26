@@ -46,8 +46,12 @@ public class Ejercicio19T7Array100Aleatorios10Y80 {
         int[]auxiliar = new int [MAX + 1];
         
         for (int i = 0; i < TAMAÑO; i++) {
-            if(analizar[i] > mayor) mayor = analizar[i];
-            if (analizar[i] < menor) menor = analizar[i];
+            if(analizar[i] > mayor) mayor = analizar[i]; {
+            
+        }
+            if (analizar[i] < menor) menor = analizar[i];{
+            
+        }
             suma += analizar[i];
             auxiliar[analizar[i]]++; // Cada vez qwue sale un número sumamos 1
     
