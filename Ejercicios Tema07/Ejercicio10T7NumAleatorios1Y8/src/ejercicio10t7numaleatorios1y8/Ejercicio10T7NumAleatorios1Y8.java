@@ -39,7 +39,7 @@ public class Ejercicio10T7NumAleatorios1Y8 {
     }
     
     /**
-     * Método que rellena el array con aleatoriso entre 8 y 1
+     * Método que rellena el array con aleatorios entre 1 y 8
      * @param aleatorio 
      */
     public static void rellenarAleatorios(int[]aleatorio){

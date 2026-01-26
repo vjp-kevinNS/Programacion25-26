@@ -56,11 +56,14 @@ public class Ejercicio17T7Array10Numeros {
      */
     public static void mayorAMenor(int[]ordenar){
         int aux; // Creamos una variable auxiliar
+        
+        // Creamos este primer bucle para repetir el proceso varias veces y asegurar que todo el array quede ordenado
         for (int i = 0; i < TAMAÑO - 1; i++) {
+            // Creamos otro que recorre el array comparando los números de dos en dos
             for (int j = 0; j < TAMAÑO - 1; j++) {
-                if (ordenar[j] < ordenar[j + 1]) {
+                if (ordenar[j] < ordenar[j + 1]) { // Si el número de la izquierda es menor que el de su derecha lo movemos
                     aux = ordenar[j];
-                    ordenar[j] = ordenar[j + 1];
+                    ordenar[j] = ordenar[j + 1]; // Realizamos el intercambio de valores
                     ordenar[j + 1] = aux;
                 }
             }           
