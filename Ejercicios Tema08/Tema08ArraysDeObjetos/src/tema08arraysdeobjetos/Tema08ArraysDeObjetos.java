@@ -15,7 +15,7 @@ public class Tema08ArraysDeObjetos {
         // 2. Instanciar un objeto -> Creamos la clase
         Marcador marcadorAzul = new Marcador("Azul", 0.50f);
 
-        // 3. Asignar un objeto s una posición del array
+        // 3. Asignar un objeto a una posición del array
         marcadores[2] = marcadorAzul;
         marcadores[0] = new Marcador("Verde", 0.3f);
 
