@@ -65,7 +65,10 @@ public class Tema08ArraysDeObjetos {
         
         /**
          * 8. EJEMPLO
+         * Rellena un array con subrayadores verde, rosa y azul usando un array
+         * auxiliar
          * 
+         * El precio debes preguntárselo al usuario
          */
         
             // 8.1. Rellenar un array con array auxiliar + datos del usuario

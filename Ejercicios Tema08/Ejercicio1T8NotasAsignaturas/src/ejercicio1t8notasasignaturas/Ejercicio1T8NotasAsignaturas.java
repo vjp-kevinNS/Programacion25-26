@@ -51,10 +51,17 @@ public class Ejercicio1T8NotasAsignaturas {
         listaAsignatura[i].setNota(notaUsuario);
         }
         
-        notaMedia(listaAsignatura);
+        // LLamamos al método para calcular la nota media
+        double media = notaMedia(listaAsignatura);
+        System.out.println("Su nota media del curso es: " + media);
         
     }
     
+    /**
+     * Método que calcula, sumando las notas de cada asignatura, la media total
+     * @param asignatura
+     * @return 
+     */
     public static double notaMedia(Asignatura[]asignatura){
         
         double nota = 0;
