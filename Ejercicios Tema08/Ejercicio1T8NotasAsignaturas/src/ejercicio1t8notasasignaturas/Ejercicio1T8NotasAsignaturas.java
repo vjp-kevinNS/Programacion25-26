@@ -47,7 +47,7 @@ public class Ejercicio1T8NotasAsignaturas {
             System.out.println("Por favor, introduzca la nota de la asignatura " + listaAsignatura[i].getNombre());
             double notaUsuario = entrada.nextDouble();            
                     
-        // Usamos el getter de la clase Asignatura para guardar la nota que ha dicho el usuairo
+        // Usamos el setter de la clase Asignatura para guardar la nota que ha dicho el usuairo
         listaAsignatura[i].setNota(notaUsuario);
         }
         
