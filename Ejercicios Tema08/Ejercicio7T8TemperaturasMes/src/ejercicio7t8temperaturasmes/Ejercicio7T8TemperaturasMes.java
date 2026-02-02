@@ -97,7 +97,7 @@ public class Ejercicio7T8TemperaturasMes {
     }
     
     /**
-     * Método que muestra los grados que hace cada día. Además controla la que
+     * Método que muestra los grados que hace cada día. Además controla que
      * no nos salte la excepción
      * @param mostrar 
      */
@@ -122,6 +122,10 @@ public class Ejercicio7T8TemperaturasMes {
         return suma;
     }
     
+    /**
+     * Método que nos muestra los días que tengan la temperatura mas alta
+     * @param alta 
+     */
     public static void mostrarTempMasAlta(Dia[]alta){
         // Primero buscamos cuál es la temperatura más alta
         int max = 0;
