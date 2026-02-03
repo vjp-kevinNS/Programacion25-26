@@ -39,7 +39,7 @@ import java.util.Arrays;
  * @author KevinNS
  */
 public class Ejercicio9T8EchoEnClaseARRAYSDEARRAYS {
-
+    
     public static void rellenar(Alumno[] alumno) {
         String[] nombreAlumnos = {"Pepe", "Juan", "Marta"};
         for (int i = 0; i < alumno.length; i++) {
@@ -68,6 +68,20 @@ public class Ejercicio9T8EchoEnClaseARRAYSDEARRAYS {
 
     }
 
+    public static void peorAlumno(Alumno[] alumnos) {
+        Alumno peorAlumno = new Alumno();
+        float peorMedia = 11; // Empezamos con un valor alto para poder bajar
+
+        for (int i = 0; i < alumnos.length; i++) {
+            if (alumnos[i].calcularMedia() < peorMedia) {
+                peorAlumno = alumnos[i];
+            }
+        }
+        System.out.println("El peor alumno es " + peorAlumno + " y su media es "
+                + peorMedia);
+
+    }
+
     public static void asignaturaMasDificil(Alumno[] alumnos) {
         // 1. Variables para guardar cuál es la asignatura con la nota más baja
         float notaMinimaMedia = 11; // Empezamos con un valor mayor que 10
@@ -85,9 +99,12 @@ public class Ejercicio9T8EchoEnClaseARRAYSDEARRAYS {
             if (mediaActual < notaMinimaMedia) {
                 notaMinimaMedia = mediaActual;
                 // Sacamos el nombre directamente de la asignatura del primer alumno
-                nombreDificil = alumnos.getNotas()[j].getNombre();
+                nombreDificil = alumnos[0].getNotas()[j].getNombre();
             }
         }
+        // Mostramos el resultado final
+        System.out.println("La asignatura más difícil es: " + nombreDificil
+                + " con una media de " + notaMinimaMedia);
     }
 
     public static void main(String[] args) {
@@ -114,8 +131,27 @@ public class Ejercicio9T8EchoEnClaseARRAYSDEARRAYS {
                     System.out.println("Rellenando notas...");
                     rellenar(alumnos);
                     break;
+                case 2:
+                    System.out.println("Mostrando notas: ");
+                    mostrar(alumnos);
+                    break;
+                case 3:
+                    System.out.println("Alumno con la mejor nota: ");
+                    mejorAlumno(alumnos);
+                    break;
+                case 4:
+                    System.out.println("Alumno con la peor nota: ");
+                    peorAlumno(alumnos);
+                    break;
+                case 5:
+                    System.out.println("Asignatura más difícil: ");
+                    asignaturaMasDificil(alumnos);
+                    break;
+                case 6:
+                    System.out.println("Saliendo del programa.......");
                 default:
-                    throw new AssertionError();
+                    System.out.println("Opción incorrecta");
+                    break;
             }
         } while (opcion != 6);
 
