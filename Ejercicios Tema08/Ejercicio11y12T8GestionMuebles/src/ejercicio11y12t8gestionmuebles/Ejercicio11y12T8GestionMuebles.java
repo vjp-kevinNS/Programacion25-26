@@ -73,7 +73,7 @@ public class Ejercicio11y12T8GestionMuebles {
         System.out.println("Muebles por menos de " + limite + " Euros");
         for (Mueble mueble : mostrar) {
             if (mueble.getPrecio() <= limite) {
-                System.out.println("- " + mueble.getDescripcion() + mueble.getPrecio()
+                System.out.println("- " + mueble.getDescripcion() + " | " + mueble.getPrecio()
                         + " Euros");
             }
         }
@@ -127,11 +127,11 @@ public class Ejercicio11y12T8GestionMuebles {
                 case 4:
                     System.out.println("Saliendo del programa...");
                     System.out.println("");
+                    break;
                 default:
                     System.out.println("Opción incorrecta...");
+                    break;
             }
         } while (opcion != 4);
-        System.out.println("Opción incorrecta");
-
     }
 }    
