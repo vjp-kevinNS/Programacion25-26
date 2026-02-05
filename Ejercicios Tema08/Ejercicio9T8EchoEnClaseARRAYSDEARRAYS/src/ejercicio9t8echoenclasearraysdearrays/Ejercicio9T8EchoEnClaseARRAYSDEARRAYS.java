@@ -50,7 +50,7 @@ public class Ejercicio9T8EchoEnClaseARRAYSDEARRAYS {
 
     public static void mostrar(Alumno[] alumnos) {
         for (Alumno alumno : alumnos) {
-            System.out.println(alumno);
+            System.out.println(alumno.toString());
         }
     }
 
@@ -61,9 +61,12 @@ public class Ejercicio9T8EchoEnClaseARRAYSDEARRAYS {
         for (int i = 0; i < alumnos.length; i++) {
             if (alumnos[i].calcularMedia() > mejorMedia) {
                 mejorAlumno = alumnos[i];
+                
+                // Actualizamos mejorMedia             
+                mejorMedia = alumnos[i].calcularMedia();
             }
         }
-        System.out.println("El mejor alumno es " + mejorAlumno + " y su media es "
+        System.out.println("El mejor alumno es " + mejorAlumno.getNombre() + " y su media es "
                 + mejorMedia);
 
     }
@@ -75,9 +78,12 @@ public class Ejercicio9T8EchoEnClaseARRAYSDEARRAYS {
         for (int i = 0; i < alumnos.length; i++) {
             if (alumnos[i].calcularMedia() < peorMedia) {
                 peorAlumno = alumnos[i];
-            }
+                
+                // Actualizamos peorMedia             
+                peorMedia = alumnos[i].calcularMedia();
+            }       
         }
-        System.out.println("El peor alumno es " + peorAlumno + " y su media es "
+        System.out.println("El peor alumno es " + peorAlumno.getNombre() + " y su media es "
                 + peorMedia);
 
     }
@@ -149,9 +155,9 @@ public class Ejercicio9T8EchoEnClaseARRAYSDEARRAYS {
                     break;
                 case 6:
                     System.out.println("Saliendo del programa.......");
-                default:
-                    System.out.println("Opción incorrecta");
                     break;
+                default:
+                    System.out.println("Opcion incorrecta");
             }
         } while (opcion != 6);
 
