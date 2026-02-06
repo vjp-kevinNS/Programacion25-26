@@ -151,15 +151,15 @@ public class Ejercicio13Y14GestionAlumnos {
         // Creamos un bucle while hasta que hayamos mirado todos los huecos y no lo hayamos encontrado
         
         // Creamos las variables que usaremos en el bucle
-        int indiceActual = 0;
+        int i = 0;
         boolean alumnoEncontrado = false;
        
-        while (indiceActual < buscar.length && alumnoEncontrado == false) {            
+        while (i < buscar.length && alumnoEncontrado == false) {            
             // Verificamos que el hueco actual no esté vacío
-            if (buscar[indiceActual] != null) {
+            if (buscar[i] != null) {
                 
                 // Sacamos el nombre del alumno de esa posición usando el getter
-                String nombreAlumnoEnLaPosicion = buscar[indiceActual].getNombre();
+                String nombreAlumnoEnLaPosicion = buscar[i].getNombre();
                 // Comparamos los nombres ignorando mayúsculas y minúsculas
                 if (nombreAlumnoEnLaPosicion.equalsIgnoreCase(nombreABuscar)) {
                     System.out.println("El alumno " + nombreABuscar 
@@ -168,7 +168,7 @@ public class Ejercicio13Y14GestionAlumnos {
                 }
             }
             // Miramos la siguiente posición
-            indiceActual = indiceActual + 1;
+            i = i + 1;
         }
         // Si al terminar el bucle la variable sigue siendo false, es que no estaba
         if (alumnoEncontrado == false) {
