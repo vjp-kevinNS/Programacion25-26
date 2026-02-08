@@ -22,7 +22,7 @@ public class Pelicula {
     }
     
     // Creamos los constructores parametrizados
-    public Pelicula(String titulo, double costeLicencia, Socio[]socio){
+    public Pelicula(String titulo, double costeLicencia){
         this.titulo = titulo;
         this.costeLicencia = costeLicencia;
         this.socios = new Socio[4];
@@ -61,6 +61,11 @@ public class Pelicula {
         return "Pelicula{" + " Titulo: " + titulo + " | Coste Licencia: " + costeLicencia + " | Socios: " + socios + '}';
     }
     
+    /**
+     * Método que recorre el array de socios, suma lo que pagó y resta el coste 
+     * de la película
+     * @return 
+     */
     public double obtenerBeneficioNeto(){
         double sumaTotalEntradas = 0;
         
