@@ -51,16 +51,69 @@ public class Ejercicio8T8TiendaDeporte {
             entrada.nextLine(); // Limpiamos el buffer
             
             // Creamos el objeto y lo metemos en el array
-            inventario[i] = new Producto(nombreProd, precioProd, cantidad);
+            inventario[i] = new Producto(nombreProd, precioProd, stockProd);
             System.out.println("---- PRODUCTO ALMACENADO CON EXITO ----");
         }
         return inventario;
+    }
+    
+    /**
+     * Método que se encarga del menú de ventas
+     * @param venta 
+     */
+    public static void procesoVenta(Producto[]venta){
+        Scanner entrada = new Scanner(System.in);
+        double importeTotalAcumulado = 0;
+        String respuesContinuar; // (Para cuando le pidamos la opcion de continuar o no al usuario)
+        
+        // Creamos un bucle do while para repetir la compra si el usuario quiere
+        do {
+            System.out.println("---- MENU DE VENTAS -----");
+            for (int i = 0; i < venta.length; i++) {
+                System.out.println("Pulse " + (i + 1) + " para comprar " 
+                        + venta[i].getNombreProducto() + "(Precio: )" + venta[i].getPrecioProducto() 
+                        + " Euros | Stock " + venta[i].getCantidadStock() + " uds");
+            }
+            
+            System.out.println("Elija una opción: ");
+            int opcion = entrada.nextInt() - 1; // Restamos 1 para que empiece por el índice 0
+            
+            System.out.println("Ha elegido: " + venta[opcion].getNombreProducto());
+            System.out.println("¿Cuántas unidades desea?");
+            int cantidadDeseada = entrada.nextInt();
+            entrada.nextLine();
+            
+            // Usamos los métodos que hemos creado en la clase Producto
+            if (venta[opcion].hayStockSuficiente(cantidadDeseada)) {
+                // Si hay Stock el producto se resta
+                venta[opcion].reducirStock(cantidadDeseada);
+                importeTotalAcumulado += (venta[opcion].getPrecioProducto() * cantidadDeseada);
+                System.out.println("Venta realizada con éxito");         
+                
+            }else{ // Si no hay lo informamos
+                System.out.println("Lo sentimos, sólo hay disponibles " 
+                        + venta[opcion].getCantidadStock() + " unidades");
+            }
+            
+            System.out.println("¿Desea comprar otro producto (si/no)?");
+            respuesContinuar = entrada.nextLine();
+            
+        } while (respuesContinuar.equalsIgnoreCase("si"));
+        System.out.println("El total de su compra es: " + importeTotalAcumulado 
+                + " Euros");
+        System.out.println("Muchas gracias, vuelva cuándo quiera");
+        
     }
 
     public static void main(String[] args) {
         
         // Creamos el array de Producto llámando al método del menú para darlos de alta 
         Producto[]productoCliente = menuAdministracion();
+        
+        // Ahora usamos los métodos creados para el menú de ventas
+        if (productoCliente != null) {
+            procesoVenta(productoCliente);
+        }
 
     }
 
