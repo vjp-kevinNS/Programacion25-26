@@ -25,8 +25,42 @@ import java.util.Scanner; // Importamos Scanner
  * @author KevinNS
  */
 public class Ejercicio8T8TiendaDeporte {
+    
+    /**
+     * Método para dar de alta uno o varios productos
+     * @param menuProd 
+     */
+    public static Producto[] menuAdministracion(){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("---- BIENVENIDO A LA TIENDA DE DEPORTES ----");
+        System.out.println("¿Cuántos productos quieres dar de alta?");
+        int cantidad = entrada.nextInt();
+        entrada.nextLine(); // Limpiamos el buffer
+        
+        // Creamos el array
+        Producto[]inventario = new Producto[cantidad];
+        
+        for (int i = 0; i < inventario.length; i++) {
+            System.out.println("PRODUCTO " + (i + 1) + ": ");
+            System.out.println("Introduzca el nombre del producto:");
+            String nombreProd = entrada.nextLine();
+            System.out.println("Introduzca el precio: ");
+            double precioProd = entrada.nextDouble();
+            System.out.println("Introduzca el stock: ");
+            int stockProd = entrada.nextInt();
+            entrada.nextLine(); // Limpiamos el buffer
+            
+            // Creamos el objeto y lo metemos en el array
+            inventario[i] = new Producto(nombreProd, precioProd, cantidad);
+            System.out.println("---- PRODUCTO ALMACENADO CON EXITO ----");
+        }
+        return inventario;
+    }
 
     public static void main(String[] args) {
+        
+        // Creamos el array de Producto llámando al método del menú para darlos de alta 
+        Producto[]productoCliente = menuAdministracion();
 
     }
 
