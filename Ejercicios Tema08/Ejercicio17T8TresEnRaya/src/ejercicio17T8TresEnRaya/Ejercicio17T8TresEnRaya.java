@@ -4,7 +4,7 @@ package ejercicio17T8TresEnRaya;
  * Implementa en JAVA el juego del 3 en Raya orientado a objetos. Aunque se
  * puede hacer de muchas maneras, esta es la que se propone en este caso:
  * 
- * • Una claseTablero, que contendrá un array de 3x3 de objetos de la clase Ficha. 
+ * • Una clase Tablero, que contendrá un array de 3x3 de objetos de la clase Ficha. 
  * 
  * • Una clase Casilla, que contendrá un atributo ficha de tipo String (“O” o “X”)
  * y otro atributo de tipo booleano llamado ocupada. 
