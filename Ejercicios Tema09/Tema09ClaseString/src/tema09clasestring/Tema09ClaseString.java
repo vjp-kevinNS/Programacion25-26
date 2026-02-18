@@ -117,20 +117,20 @@ public class Tema09ClaseString {
         
         
 
-        // Ejemplo: Organizar productos de una tienda por categorias utilizando su código
-        System.out.println("- EJEMPLO -");
-        Producto producto = new Producto("HOG5429", 29.99, 30);
-        String codigoProducto = "HOG5429";
-        String categoria = codigoProducto.trim().substring(0, 3);
-        String codigo = codigoProducto.trim().substring(3);
-        System.out.println(categoria);
-        System.out.println(codigo);
-        
-        if (categoria.equalsIgnoreCase("HOG")) {
-            System.out.println("Categoria: HOGAR");
-            productosHogar[i] = producto;
-            
-        }
+//        // Ejemplo: Organizar productos de una tienda por categorias utilizando su código
+//        System.out.println("- EJEMPLO -");
+//        Producto producto = new Producto("HOG5429", 29.99, 30);
+//        String codigoProducto = "HOG5429";
+//        String categoria = codigoProducto.trim().substring(0, 3);
+//        String codigo = codigoProducto.trim().substring(3);
+//        System.out.println(categoria);
+//        System.out.println(codigo);
+//        
+//        if (categoria.equalsIgnoreCase("HOG")) {
+//            System.out.println("Categoria: HOGAR");
+//            productosHogar[i] = producto;
+//            
+//        }
 
     }
 }
