@@ -24,7 +24,7 @@ public class Ejercicio9T9CorrecciónContraseña {
         System.out.println("Introduce tu contraseña: ");
         String contraseña = entrada.nextLine();
         
-        // Variables psra verificar las condiciones
+        // Variables para verificar las condiciones
         boolean longitud = contraseña.length() >= 6; // ¿Tiene 6 o mas carácteres?
         boolean nombreEnContraseña = contraseña.indexOf(nombreUsuario) == -1; // ¿El nombre de usuario no está dentro de la contrasdeña?
         int contadorDigitos = 0;
