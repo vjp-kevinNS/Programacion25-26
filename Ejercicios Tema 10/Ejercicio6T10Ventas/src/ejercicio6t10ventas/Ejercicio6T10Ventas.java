@@ -23,7 +23,7 @@ import java.util.Scanner; // Importamos Scanner
  * @author KevinNS
  */
 public class Ejercicio6T10Ventas {
-    
+
     /**
      * Método que muestra el menú al usuario
      */
@@ -39,19 +39,20 @@ public class Ejercicio6T10Ventas {
         System.out.println("---------------7.SALIR DEL PROGRAMA---------------");
         System.out.println("--------------------------------------------------");
     }
-    
+
     /**
      * Método que pide al usuario que rellene la lista de ventas de los 12 meses
+     *
      * @param lista
-     * @param nombreMeses 
+     * @param nombreMeses
      */
-    public static void rellenarVentas(ArrayList<Integer> lista, String[]nombreMeses){
+    public static void rellenarVentas(ArrayList<Integer> lista, String[] nombreMeses) {
         Scanner entrada = new Scanner(System.in);
-        
+
         // Creamos una variable i y pedimos al usuario que introduzca los datos
         int i = 0;
         System.out.println("Introduzca las ventas para cada mes: ");
-        
+
         // Usamos un while para recorrer los 12 meses del array de nombres
         while (i < nombreMeses.length) {
             System.out.println(nombreMeses[i] + ": ");
@@ -60,13 +61,14 @@ public class Ejercicio6T10Ventas {
             i++; // Incrementamos el contador            
         }
     }
-    
+
     /**
      * Método que muestra las ventas introducidas previamente
+     *
      * @param lista
-     * @param nombreMeses 
+     * @param nombreMeses
      */
-    public static void mostrarVentas(ArrayList<Integer>lista, String[]nombreMeses){
+    public static void mostrarVentas(ArrayList<Integer> lista, String[] nombreMeses) {
         // Usamos isEmpty() para comprobar si la lista está vacía antes de intentar leerla
         if (lista.isEmpty()) {
             System.out.println("Error: Primero debes introducir las ventas (opción 1)");
@@ -79,18 +81,19 @@ public class Ejercicio6T10Ventas {
             i++;
         }
     }
-    
+
     /**
      * Método que muestra las ventas pero al revés
+     *
      * @param lista
-     * @param nombreMeses 
+     * @param nombreMeses
      */
-    public static void mostrarAlReves(ArrayList<Integer>lista, String[]nombreMeses){
+    public static void mostrarAlReves(ArrayList<Integer> lista, String[] nombreMeses) {
         // Igual que en el anterior comprobamos si la lista está vacía
         if (lista.isEmpty()) {
             return;
         }
-        
+
         // Empezamos en la posición 11 (Diciembre) y bajamos hasta la 0 (Enero)
         int i = lista.size() - 1;
         System.out.println("Orden inverso: ");
@@ -99,47 +102,54 @@ public class Ejercicio6T10Ventas {
             i--;
         }
     }
-    
+
     /**
      * Método que suma todas las ventas anuales
-     * @param lista 
+     *
+     * @param lista
      */
-    public static void sumarVentasAnuales(ArrayList<Integer>lista){
+    public static void sumarVentasAnuales(ArrayList<Integer> lista) {
         // Creamos una variable para ir sumando todos los .get(i)
         int total = 0;
         int i = 0;
         while (i < lista.size()) {
             total += lista.get(i); // Sumamos el valor actual a lo que ya teníamos
-            i++;            
+            i++;
         }
         System.out.println("Ventas totales del año: " + total);
     }
-    
+
     /**
      * Método que muestra las ventas de los meses que contengan una 'a'
+     *
      * @param lista
-     * @param nombreMeses 
+     * @param nombreMeses
      */
-    public static void ventaMesesConA(ArrayList<Integer>lista, String[]nombreMeses){
+    public static void ventaMesesConA(ArrayList<Integer> lista, String[] nombreMeses) {
         // Igual que antes comprobamos si la lista está vacía
         if (lista.isEmpty()) {
             return;
         }
         int i = 0;
         System.out.println("Meses con la letra 'a': ");
-        // Pasamos a minúsculas para que detecte A y a
-        if (nombreMeses[i].toLowerCase().contains("a")) {
-            System.out.println("- " + nombreMeses[i] + ": " + lista.get(i) );
+
+        // Creamos un bucle para recorrer de la posición 0 a la 11
+        while (i < nombreMeses.length) {
+            // Pasamos a minúsculas para que detecte A y a
+            if (nombreMeses[i].toLowerCase().contains("a")) {
+                System.out.println("- " + nombreMeses[i] + ": " + lista.get(i));
+            }
+            i++;
         }
-        i++;
     }
-    
+
     /**
      * Método que muestra el mes con más ventas
+     *
      * @param lista
-     * @param nombreMeses 
+     * @param nombreMeses
      */
-    public static void mesConMasVentas(ArrayList<Integer>lista, String[]nombreMeses){
+    public static void mesConMasVentas(ArrayList<Integer> lista, String[] nombreMeses) {
         // Igual que antes comprobamos si la lista está vacía
         if (lista.isEmpty()) {
             return;
@@ -153,19 +163,19 @@ public class Ejercicio6T10Ventas {
             }
             i++;
         }
-        
+
         // Despues buscamos quiénes empatan con ese máximo
         System.out.println("Mes/es con máximo de ventas (" + max + "): ");
         int j = 0;
         while (j < lista.size()) {
-            if (lista.get(i) == max) {
+            if (lista.get(j) == max) {
                 System.out.println(nombreMeses[j] + " ");
             }
             j++;
         }
         System.out.println();
     }
-    
+
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
