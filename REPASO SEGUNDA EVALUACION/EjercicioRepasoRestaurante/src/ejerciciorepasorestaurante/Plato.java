@@ -18,7 +18,7 @@ public class Plato {
         this.descripcion = "";
         this.vegetariano = false;
         this.precio = 0f;
-        this.stock = 20;
+        this.stock = (int)(Math.random() * 20);
     }
     
     // Creamos los constructores parametrizados
@@ -26,7 +26,7 @@ public class Plato {
         this.descripcion = descripcion;
         this.vegetariano = vegetariano;
         this.precio = precio;
-        this.stock = 20;
+        this.stock = (int)(Math.random() * 20);
     }
     
     // Creamos los getters y setters
