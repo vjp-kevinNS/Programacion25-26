@@ -14,14 +14,14 @@ public class Carta {
     // Creamos los constructores por defecto
 
     public Carta() {
-        this.platos = new Plato[2];
+        this.platos = new Plato[4];
         this.nombre = "";
     }
     
     // Creamos los constructores parametrizados
 
     public Carta(String nombre) {
-        this.platos = new Plato[2];
+        this.platos = new Plato[4];
         this.nombre = nombre;
     }
     
