@@ -11,11 +11,17 @@ import java.util.Scanner;
  *
  * Menu con opciones:
  *
- * 1-Rellenar la carta (pedir al usuario que lo rellene) 2-Mostrar la carta
- * entera 3-Mostrar platos vegatarianos 4-Mostrar platos mas caros 5-Mostrar
- * platos mas baratos 6-Mostrar plato con menos stock 7-Quitar stock 8-Añadir
- * stock 9-Añadir plato en una posición específica 10-Eliminar plato de una
- * posición especifica (null) 11- Buscar platos que contengan una palabra
+ * 1-Rellenar la carta (pedir al usuario que lo rellene) 
+ * 2-Mostrar la carta entera 
+ * 3-Mostrar platos vegatarianos 
+ * 4-Mostrar platos mas caros 
+ * 5-Mostrar platos mas baratos 
+ * 6-Mostrar plato con menos stock 
+ * 7-Quitar stock 
+ * 8-Añadir stock 
+ * 9-Añadir plato en una posición específica 
+ * 10-Eliminar plato de una posición especifica (null) 
+ * 11- Buscar platos que contengan una palabra
  *
  * @author KevinNS
  */
