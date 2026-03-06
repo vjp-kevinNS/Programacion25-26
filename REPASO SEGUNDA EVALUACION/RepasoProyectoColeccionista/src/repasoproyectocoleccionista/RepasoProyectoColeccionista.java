@@ -27,6 +27,12 @@ import java.util.Scanner;
  */
 public class RepasoProyectoColeccionista {
 
+    /**
+     * Método que rellena la matriz celda por celda pidiendole los datos de las
+     * figuras al usuario
+     *
+     * @param nuevaFigura
+     */
     public static void rellenarVitrina(Figura[][] nuevaFigura) {
         Scanner entrada = new Scanner(System.in);
 
@@ -47,19 +53,24 @@ public class RepasoProyectoColeccionista {
 
                 // Creamos un objeto de figura en la posición actual
                 nuevaFigura[i][j] = new Figura(nombreFigura, coleccFigura, precioFigura);
-
             }
-
         }
-
     }
 
+    /**
+     * Método que muestra las figuras de una determinada colección
+     *
+     * @param nuevaFigura
+     */
     public static void mostrarFigurasColeccion(Figura[][] nuevaFigura) {
         Scanner entrada = new Scanner(System.in);
         // Preguntamos al usuario que colección quiere mostrar
         System.out.println("¿Qué colección quieres mostrar?: ");
         String coleccion = entrada.nextLine();
-
+        
+        // Creamos un boolean inicialmente en false para ver si encuentra una figura o no de esa colección
+        boolean hayFigura = false;
+        
         // Recorremos la matriz
         for (int i = 0; i < nuevaFigura.length; i++) {
             for (int j = 0; j < nuevaFigura[i].length; j++) {
@@ -73,38 +84,45 @@ public class RepasoProyectoColeccionista {
                     if (figuraActual.getColeccion().equalsIgnoreCase(coleccion)) {
                         System.out.println("Figura " + figuraActual
                                 + " | Posición -> " + i + " " + j);
-
+                        
+                        // Ponemos a true si encontramos figura
+                        hayFigura = true;
                     }
 
                 }
 
             }
 
+        }
+        // Si no hay figura lo ponemos a false y mostramos información
+        if (hayFigura == false) {
+            System.out.println("No hay figuras de esa colección");
         }
 
     }
 
+    /**
+     * Método que muestra la figura más valiosa
+     *
+     * @param nuevaFigura
+     */
     public static void mostrarMasValiosa(Figura[][] nuevaFigura) {
-        // Controlamos que no desborde
-        try {
 
-            // Creamos uin objeto de figura para guardar la mas valiosa
-            Figura figuraValiosa = new Figura();
+        // Creamos uin objeto de figura para guardar la mas valiosa
+        Figura figuraValiosa = new Figura();
 
-            // Recorremos la matriz
-            for (int i = 0; i < nuevaFigura.length; i++) {
-                for (int j = 0; j < nuevaFigura[i].length; j++) {
+        // Recorremos la matriz
+        for (int i = 0; i < nuevaFigura.length; i++) {
+            for (int j = 0; j < nuevaFigura[i].length; j++) {
 
-                    // Guardamos la figura
-                    Figura figuraActual = nuevaFigura[i][j];
+                // Guardamos la figura
+                Figura figuraActual = nuevaFigura[i][j];
 
-                    // Controlamos que no sea nulo
-                    if (figuraActual != null) {
+                // Controlamos que no sea nulo
+                if (figuraActual != null) {
 
-                        if (figuraActual.getValor() > figuraValiosa.getValor()) {
-                            figuraValiosa = figuraActual;
-
-                        }
+                    if (figuraActual.getValor() > figuraValiosa.getValor()) {
+                        figuraValiosa = figuraActual;
 
                     }
 
@@ -112,13 +130,10 @@ public class RepasoProyectoColeccionista {
 
             }
 
-            System.out.println("La figura más valiosa es: "
-                    + figuraValiosa);
-
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Posicion fuera de rango");
         }
 
+        System.out.println("La figura más valiosa es: "
+                + figuraValiosa);
     }
 
     public static void mostrarMenu() {
