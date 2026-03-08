@@ -295,7 +295,7 @@ public class EjercicioRepasoVideoclub {
             }
 
         }
-        System.out.println("El género " + contarGenero + " tiene " + contador + " películas");
+        System.out.println("El género " + contarGenero + " tiene " + contador + " película");
 
     }
 
