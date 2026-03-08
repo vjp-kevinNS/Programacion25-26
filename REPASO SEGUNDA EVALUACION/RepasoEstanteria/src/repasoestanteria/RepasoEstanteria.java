@@ -25,20 +25,20 @@ import java.util.Scanner;
  * @author KevinNS
  */
 public class RepasoEstanteria {
-    
+
     /**
      * Método que rellena la estantería de libros con los doatos que pedimos
      * previamente al usuario
-     * 
-     * @param miLibro 
+     *
+     * @param miLibro
      */
     public static void rellenarEstanteria(Libro[][] miLibro) {
-        Scanner entrada= new Scanner(System.in);
-        
-        // Recorremos la matriz
+        Scanner entrada = new Scanner(System.in);
+
+         // Recorremos la matriz 
         for (int i = 0; i < miLibro.length; i++) {
             for (int j = 0; j < miLibro[i].length; j++) {
-                
+
                 // Pedimos al usuarios los datos del libro
                 System.out.println("Introduce los datos del libro: ");
                 System.out.println();
@@ -49,153 +49,184 @@ public class RepasoEstanteria {
                 System.out.println("¿Cuántas páginas tiene el libro?: ");
                 int paginasLibro = entrada.nextInt();
                 entrada.nextLine();
-                
+
                 // Creamos el objeto de libro con los datos introducidos
                 miLibro[i][j] = new Libro(tituloLibro, autoLibro, paginasLibro);
                 // RECORDAR ESTO QUE SIEMPRE ME EQUIVOCO!!!!!!!
             }
-            
+
         }
+//        try { 
+//            // Aqui haremos como si el usuario tuviera que introducir la posición
+//            // con un try catch para controlar el desborde
+//            System.out.println("Introduce la fila: ");
+//            int fila = entrada.nextInt();
+//            System.out.println("Introduce la columna: ");
+//            int columna = entrada.nextInt();
+//            entrada.nextLine();
+//
+//            // Pedimos al usuarios los datos del libro
+//            System.out.println("Introduce los datos del libro: ");
+//            System.out.println();
+//            System.out.println("¿Qué título tiene el libro?: ");
+//            String tituloLibro = entrada.nextLine();
+//            System.out.println("¿Quién es el autor del libro?: ");
+//            String autoLibro = entrada.nextLine();
+//            System.out.println("¿Cuántas páginas tiene el libro?: ");
+//            int paginasLibro = entrada.nextInt();
+//            entrada.nextLine();
+//
+//            // Creamos el objeto con las variables de posición
+//            miLibro[fila][columna] = new Libro(tituloLibro, autoLibro, paginasLibro);
+//
+//        } catch (ArrayIndexOutOfBoundsException e) {
+//            System.out.println("Error. Está fuera de rango");
+//        }
 
     }
-    
+
     /**
-     * Método que muestra los libros de un autor determinado eleijdo por el usuario
-     * 
-     * @param miLibro 
+     * Método que muestra los libros de un autor determinado eleijdo por el
+     * usuario
+     *
+     * @param miLibro
      */
     public static void mostrarLibros(Libro[][] miLibro) {
         Scanner entrada = new Scanner(System.in);
-        
-        // Pedimos al usuario que indique el autor
-        System.out.println("¿Qué autor quieres buscar?: ");
-        String autorlibro = entrada.nextLine();
-        
-        boolean hayAutor = false; // Creamos éste boolean para indicar si hay libros de ese autor o no
-        
-        // Recorremos la matriz
-        for (int i = 0; i < miLibro.length; i++) {
-            for (int j = 0; j < miLibro[i].length; j++) {
-                
-                if (miLibro != null) { // Control de nulos
-                     
-                    if (miLibro[i][j].getAutor().equalsIgnoreCase(autorlibro)) {
-                        System.out.println(" Mostrando " + miLibro[i][j] + " del autor: " 
-                                + autorlibro);
-                        hayAutor = true; // Si encontramos al autor
+        // Creamos un try catch para controlar que si no encontramos un libro nos dé error
+        try {
+            // Pedimos al usuario que indique el autor
+            System.out.println("¿Qué autor quieres buscar?: ");
+            String autorlibro = entrada.nextLine();
+
+            boolean hayAutor = false; // Creamos éste boolean para indicar si hay libros de ese autor o no
+
+            // Recorremos la matriz
+            for (int i = 0; i < miLibro.length; i++) {
+                for (int j = 0; j < miLibro[i].length; j++) {
+
+                    if (miLibro[i][j] != null) { // Control de nulos
+
+                        if (miLibro[i][j].getAutor().equalsIgnoreCase(autorlibro)) {
+                            System.out.println(" Mostrando " + miLibro[i][j] + " del autor: "
+                                    + autorlibro);
+                            hayAutor = true; // Si encontramos al autor
+                        }
+
                     }
-                    
+
                 }
-                
+
             }
-            
+            // Indicamos un mensaje si no se ha encotnrado al autor
+            if (hayAutor == false) {
+                System.out.println("No se ha encontrado al autor");
+            }
+
+        } catch (NullPointerException e) {
+            System.out.println("Error. No se encuentra el libro");
         }
-        // Indicamos un mensaje si no se ha encotnrado al autor
-        if (hayAutor == false) {
-            System.out.println("No se ha encontrado al autor");
-        }
-        
 
     }
-    
+
     /**
      * Método que muestra el libro con mayor número de páginas
-     * 
-     * @param miLibro 
+     *
+     * @param miLibro
      */
     public static void mayorNumPaginas(Libro[][] miLibro) {
         // Creamos un objeto para
         Libro mayorNum = new Libro();
-               
+
         // Recorremos la matriz
         for (int i = 0; i < miLibro.length; i++) {
             for (int j = 0; j < miLibro[i].length; j++) {
-                
-                if (miLibro != null) { // Control de nulos
-                    
+
+                if (miLibro[i][j] != null) { // Control de nulos
+
                     if (miLibro[i][j].getNumPaginas() > mayorNum.getNumPaginas()) {
                         mayorNum = miLibro[i][j];
                     }
                 }
             }
-            
+
         }
         // RECORDAR QUE SIMPLEMENTE TENEMOS QUE MOSTRARLO!!!!
         System.out.println("El libro con mayor número de páginas es: " + mayorNum);
 
     }
-    
+
     /**
      * Método que muestra el libro que contenga en su título una letra o palabra
      * elejida por el usuario
-     * 
-     * @param miLibro 
+     *
+     * @param miLibro
      */
     public static void mostrarConPalabraOLetra(Libro[][] miLibro) {
         Scanner entrada = new Scanner(System.in);
-        
+
         // Pedimos al usuario que indique la letra o palabra a buscar
         System.out.println("¿Qué letra/palabra contiene el título?: ");
         String eleccionUsu = entrada.nextLine();
-        
+
         // Recorremos la matriz
         for (int i = 0; i < miLibro.length; i++) {
             for (int j = 0; j < miLibro[i].length; j++) {
-                
-                if (miLibro != null) { // Control de nulos
-                    
+
+                if (miLibro[i][j] != null) { // Control de nulos
+
                     if (miLibro[i][j].getTitulo().contains(eleccionUsu)) {
-                        System.out.println("Mostrando libro que contiene la letra/palabra: " 
+                        System.out.println("Mostrando libro que contiene la letra/palabra: "
                                 + eleccionUsu + " " + miLibro[i][j]);
                     }
-                    
+
                 }
-                
+
             }
-            
+
         }
 
     }
-    
+
     /**
-     * Método que elimina los libros de un autor determinado elejido por el 
+     * Método que elimina los libros de un autor determinado elejido por el
      * usuario
-     * 
-     * @param miLibro 
+     *
+     * @param miLibro
      */
     public static void eliminarLibrosAutor(Libro[][] miLibro) {
         Scanner entrada = new Scanner(System.in);
-        
+
         // Pedimos al usuario que indique que el autor
         System.out.println("¿Qué autor quieres eliminar?: ");
         String autorUsu = entrada.nextLine();
-        
+
         // Creamos un contador para indicar cuántos libros se han elimninado
         int contador = 0;
-        
+
         // Recorremos la matriz
         for (int i = 0; i < miLibro.length; i++) {
             for (int j = 0; j < miLibro[i].length; j++) {
-                
-                if (miLibro != null) { // Control de nulos
-                    
+
+                if (miLibro[i][j] != null) { // Control de nulos
+
                     if (miLibro[i][j].getAutor().equalsIgnoreCase(autorUsu)) {
                         miLibro[i][j] = null; // Lo ponemos a null para borrarlo
                         contador++; // Incrementamos el contador
-                                               
+
                     }
                 }
-                
+
             }
-            
+
         }
         // RECORDAR ESTO, SI NO NO SE CONTABILIZA COMO QUEREMOS 
         if (contador > 0) {
             System.out.println("Se han eliminado " + contador + " libros");
-        }else{
+        } else {
             System.out.println("No hay libros de ese autor");
         }
-        
+
     }
 
     /**
