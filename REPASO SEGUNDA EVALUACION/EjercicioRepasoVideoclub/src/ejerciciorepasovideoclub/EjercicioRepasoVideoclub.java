@@ -17,19 +17,19 @@ import java.util.Scanner;
  *
  * 2- Rellenar el videoclub indicando posición
  *
- * 2- Mostrar las películas de un género concreto.
+ * 3- Mostrar las películas de un género concreto.
  *
- * 3- Mostrar la película con mayor duración.
+ * 4- Mostrar la película con mayor duración.
  *
- * 4- Mostrar películas que contengan una palabra o letra en el título.
+ * 5- Mostrar películas que contengan una palabra o letra en el título.
  *
- * 5- Eliminar todas las películas de un género concreto.
+ * 6- Eliminar todas las películas de un género concreto.
  *
- * 6- Mostrar la duración media de todas las películas.
+ * 7- Mostrar la duración media de todas las películas.
  *
- * 7- Contar cuántas películas hay de un género concreto.
+ * 8- Contar cuántas películas hay de un género concreto.
  *
- * 8- Salir del programa.
+ * 9- Salir del programa.
  *
  * @author KevinNS
  */
@@ -265,12 +265,12 @@ public class EjercicioRepasoVideoclub {
         System.out.println("La media de la duración de las películas es: " + mediaDuracion);
 
     }
-    
+
     /**
      * Método que cuenta las películas de un género previamente introducido por
      * el usuario
-     * 
-     * @param nuevasPelis 
+     *
+     * @param nuevasPelis
      */
     public static void contarPelisGenero(Pelicula[][] nuevasPelis) {
         Scanner entrada = new Scanner(System.in);
@@ -327,9 +327,10 @@ public class EjercicioRepasoVideoclub {
         int opcion = 0;
 
         do {
-            mostrarMenu();
-            opcion = entrada.nextInt();
             try {
+                mostrarMenu();
+                opcion = entrada.nextInt();
+                
                 switch (opcion) {
                     case 1:
                         rellenarVideoclub(nuevasPelis);
@@ -364,6 +365,7 @@ public class EjercicioRepasoVideoclub {
 
             } catch (InputMismatchException e) {
                 System.out.println("Error. Has introducido una letra");
+                entrada.nextLine();
             }
 
         } while (opcion != 9);

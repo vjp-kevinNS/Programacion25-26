@@ -258,9 +258,9 @@ public class RepasoRestauranteRepeticion {
 
     /**
      * Método que muestra el plato más caro
-     * 
-     * @param miCarta 
-     */    
+     *
+     * @param miCarta
+     */
     public static void mostrarMasCaro(Restaurante miCarta) {
         // Creamos un objeto plato
         Plato masCaro = new Plato("", true, 0, 0);
@@ -282,9 +282,9 @@ public class RepasoRestauranteRepeticion {
 
     /**
      * Método que muestra el plato más barato
-     * 
-     * @param miCarta 
-     */    
+     *
+     * @param miCarta
+     */
     public static void mostrarMasBarato(Restaurante miCarta) {
         // Creamos un objeto plato
         Plato masBarato = new Plato("", true, 0, 0);
@@ -392,9 +392,9 @@ public class RepasoRestauranteRepeticion {
         // Creamos el menu controlando excepciones
         int opcion = 0;
         do {
-            mostrarMenu();
-            opcion = entrada.nextInt();
             try {
+                mostrarMenu();
+                opcion = entrada.nextInt();
                 switch (opcion) {
                     case 1:
                         rellenarTodaCarta(miCarta);
@@ -441,6 +441,7 @@ public class RepasoRestauranteRepeticion {
 
             } catch (InputMismatchException e) {
                 System.out.println("Error. Has introducido una letra");
+                entrada.nextLine();
             }
 
         } while (opcion != 13);
