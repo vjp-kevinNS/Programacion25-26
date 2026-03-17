@@ -173,6 +173,7 @@ public class Ejercicio1T11TemperaturasMes {
 
             } catch (InputMismatchException e) {
                 System.out.println("Error. Has introducido una letras");
+                entrada.nextLine();
             }
 
         } while (opcion != 5);
