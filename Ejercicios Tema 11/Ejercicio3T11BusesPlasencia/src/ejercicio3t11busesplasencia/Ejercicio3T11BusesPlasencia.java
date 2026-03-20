@@ -35,43 +35,42 @@ import java.util.Scanner;
  * @author KevinNS
  */
 public class Ejercicio3T11BusesPlasencia {
-    
+
     /**
-     * Método que primero comprueba si una plaza está libre o no y que luego 
-     * pide los datos del conductor y del autobus al usuario para crearlos y 
+     * Método que primero comprueba si una plaza está libre o no y que luego
+     * pide los datos del conductor y del autobus al usuario para crearlos y
      * aparcar el bus
-     * 
-     * @param lista 
+     *
+     * @param lista
      */
-    public static void aparcarBus(Autobus[]lista){
+    public static void aparcarBus(Autobus[] lista) {
         Scanner entrada = new Scanner(System.in);
-        
+
         // Creamos un bucle que se repetirá si la plaza está libre o ya está ocupada
         int posicion;
-        
+
         do {
-            System.out.println("¿En que plaza quieres aparcar? (0-5): ");
+            System.out.println("¿En que plaza quieres aparcar? (0-6): ");
             posicion = entrada.nextInt();
-            
-            // Si la posición introducida es menor que 0 y mayor que 5 será errónea
-            if (posicion < 0 || posicion > 5) {
-                System.out.println("Error. Solo hay plazas de la 0 a la 5");
-            }else if (lista[posicion] != null) { // Si la celda no es null hay un bus allí
+
+            // Si la posición introducida es menor que 0 y mayor que 6 será errónea
+            if (posicion < 0 || posicion > 6) {
+                System.out.println("Error. Solo hay plazas de la 0 a la 6");
+            } else if (lista[posicion] != null) { // Si la celda no es null hay un bus allí
                 System.out.println("Esa plaza ya está ocupada");
-                
+
             }
-                
-            } while (posicion < 0 || posicion > 5 || lista[posicion] != null);
-        
+
+        } while (posicion < 0 || posicion > 6 || lista[posicion] != null);
+
         entrada.nextLine();
-        
+
         // Una vez comprobado si la plaza esta libre o no pedimos los datos del bus y del conductor
-        
         System.out.println("Matrícula: ");
         String matricula = entrada.nextLine();
         // Creamos el objeto y lo metemos en el hueco del array
         Autobus nuevoBus = new Autobus(matricula);
-        
+
         // Añadimos un conductor al mapa interno del bus usando .put
         System.out.println("DNI conductor: ");
         String dniC = entrada.nextLine();
@@ -79,106 +78,121 @@ public class Ejercicio3T11BusesPlasencia {
         String nombreC = entrada.nextLine();
         // Ahora le añadimos el conductor al bus
         nuevoBus.getConductores().put(dniC, nombreC);
-        
+
         // Guardamos el objeto en la posición elegida
         lista[posicion] = nuevoBus;
         System.out.println("Autobus aparcado con éxito");
     }
-    
+
     /**
      * Método que muestra las plazas libres
-     * 
-     * @param lista 
+     *
+     * @param lista
      */
-    public static void verLibre(Autobus[]lista){
+    public static void verLibre(Autobus[] lista) {
         System.out.println("---PLAZAS DISPONIBLES---");
         // Recorremos la lista
         for (int i = 0; i < lista.length; i++) {
-            // Si la celda es null, signifíca que no hay ningún Aubosu ahí
+            // Si la celda es null, signifíca que no hay ningún Autobus ahí
             if (lista[i] == null) {
-                System.out.println(i + " ");
+                System.out.print(i + " ");
             }
-            
+
         }
         System.out.println();
     }
-    
+
     /**
      * Método que busca un bus con la matrícula indicada por el usuario
-     * 
-     * @param lista 
+     *
+     * @param lista
      */
-    public static void buscarMatricula(Autobus[]lista){
+    public static void buscarMatricula(Autobus[] lista) {
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Indica la matrícula: ");
+        System.out.println("Indica la matrícula a buscar: ");
         String matBuscada = entrada.nextLine();
-        
-        // Recorremos elk array buscando el objeto que coincida
-        for (Autobus bus : lista) {
-            if (bus != null && bus.getMatricula().equalsIgnoreCase(matBuscada)) {
-                // Si lo encontramos, mostramos los conductores asignados
-                System.out.println("Encontrado. Conductores asignados: " + bus.getConductores());
-                return; // Salimos del método al encontrarlo
-                
+
+        int i = 0; // Índice para movernos por el array
+        boolean encontrado = false; // Para saber si parar el bucle
+
+        // Usamos WHILE para buscar y parar cuando lo tengamos
+        while (i < lista.length && !encontrado) {
+            // Verificamos que la plaza no esté vacía (null) y comparamos matrícula
+            if (lista[i] != null && lista[i].getMatricula().equalsIgnoreCase(matBuscada)) {
+                System.out.println("¡Bus localizado!");
+                // Mostramos los conductores usando el método HashMap
+                System.out.println("Conductores asignados: " + lista[i].getConductores());
+                encontrado = true; // Al ponerlo a true, el bucle se detendrá en la próxima vuelta
             }
-            
+            i++; // Pasamos a la siguiente plaza de la estación
         }
-        System.out.println("No hay ningún autobús con esa matrícula");
+
+        if (!encontrado) {
+            System.out.println("No hay ningún autobús con esa matrícula.");
+        }
     }
-    
+
     /**
-     * Método que localiza al conductor con el DNI introducido por el usuario
-     * y muestra el autobús que tiene asignado
-     * 
-     * @param lista 
+     * Método que localiza al conductor con el DNI introducido por el usuario y
+     * muestra el autobús que tiene asignado
+     *
+     * @param lista
      */
-    public static void localizarDni(Autobus[]lista){
+    public static void localizarDni(Autobus[] lista) {
         Scanner entrada = new Scanner(System.in);
-        
-        // Preguntamos al usuario que DNI quiere buscar
-        System.out.println("DNI a buscar: ");
-        String dniC = entrada.nextLine();
-        
-        // Recorremos la lista
-        for (Autobus bus : lista) {
-            // Comprobamos si el mapa de cada bus tiene esa clave (DNI)
-            if (bus != null && bus.getConductores().containsKey(dniC)) {
-                System.out.println("Ese conductor está en el bus con matrícula: " 
-                        + bus.getMatricula());
-                return;
+        System.out.println("DNI del conductor a localizar: ");
+        String dniBusq = entrada.nextLine();
+
+        int i = 0;
+        boolean encontrado = false;
+
+        while (i < lista.length && !encontrado) {
+            // Entramos en cada bus y preguntamos a su HashMap de conductores
+            if (lista[i] != null && lista[i].getConductores().containsKey(dniBusq)) {
+                System.out.println("El conductor con DNI " + dniBusq + " está asignado al bus: "
+                        + lista[i].getMatricula());
+                encontrado = true; // Paramos la búsqueda
             }
+            i++;
         }
-        System.out.println("No se ha encontrado ese DNI en ningún bus");
+
+        if (!encontrado) {
+            System.out.println("No se ha encontrado ese DNI en ningún autobús de la estación.");
+        }
     }
-    
+
     /**
      * Método que muestra el bus (con su plaza) que tiene más conductores
      * asignados
-     * 
-     * @param lista 
+     *
+     * @param lista
      */
-    public static void busConMasPersonal(Autobus[]lista){
-        // Empzamos buscando con los valores mas bajos posibles
-        int max = -1;
-        int plazaGanadora = -1;
-        
-        // Recorremos la lista
-        for (int i = 0; i < lista.length; i++) {
+    public static void busConMasPersonal(Autobus[] lista) {
+        int maxConductores = -1; // Récord de conductores encontrados
+        int plazaGanadora = -1;  // Posición del bus que tiene el récord
+        int i = 0;
+
+        // Recorremos todas las plazas de la estación
+        while (i < lista.length) {
             if (lista[i] != null) {
-                // Usamos .size para saber cuántos conductores tiene el mapa
-                int numCond = lista[i].getConductores().size();
-                if (numCond > max) {
-                    max = numCond;
+                // Usamos .size para saber cuántos conductores tiene este bus
+                int numCondActual = lista[i].getConductores().size();
+
+                // Si este bus supera el récord anterior, actualizamos los datos
+                if (numCondActual > maxConductores) {
+                    maxConductores = numCondActual;
                     plazaGanadora = i;
                 }
             }
-            
+            i++; // Siguiente bus
         }
+
+        // Al final del trayecto, comprobamos si encontramos algún bus
         if (plazaGanadora != -1) {
-            System.out.println("El bus con más conductores está en la plaza: " 
+            System.out.println("El autobús con mayor número de conductores está en la dársena: "
                     + plazaGanadora);
-        }else{
-            System.out.println("La estación está vacía");
+        } else {
+            System.out.println("La estación está actualmente vacía.");
         }
     }
 

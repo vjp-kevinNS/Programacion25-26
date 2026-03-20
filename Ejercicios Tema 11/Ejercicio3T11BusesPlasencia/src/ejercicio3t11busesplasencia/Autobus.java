@@ -11,7 +11,7 @@ public class Autobus {
     
     // Creamos los atributos
     private String matricula;
-    // Mapa donde la Clave e4s el DNI y el Valor el Nombre del conductor
+    // Mapa donde la Clave es el DNI y el Valor el Nombre del conductor
     private HashMap<String, String> conductores;
     
     // Cremaos los contructores por defecto

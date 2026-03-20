@@ -36,7 +36,7 @@ public class Ejercicio4T11Conjuntos {
         
         // CREACION DE CONJUNTOS:
         
-        // El HashSet es más rápido, pero mças desordenado
+        // El HashSet es más rápido, pero más desordenado
         Set<String> conjuntoHash = new HashSet<>();
         
         // El LinkedHashSet usa una lista enlazada para recordar el orden de llegada
@@ -52,7 +52,7 @@ public class Ejercicio4T11Conjuntos {
         System.out.println("---CONTENIDO DEL HASHSET (Orden aleatorio)---");
         mostrarConjunto(conjuntoHash);
         
-        System.out.println("---CONTENIDO DEL LINKEDHASHSET (Orden de ijnserción)---");
+        System.out.println("---CONTENIDO DEL LINKEDHASHSET (Orden de inserción)---");
         mostrarConjunto(conjuntoLinked);
         
         // Mostramos las diferencias
