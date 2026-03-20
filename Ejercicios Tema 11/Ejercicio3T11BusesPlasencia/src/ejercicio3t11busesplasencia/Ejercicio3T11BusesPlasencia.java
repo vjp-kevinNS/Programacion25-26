@@ -117,9 +117,9 @@ public class Ejercicio3T11BusesPlasencia {
 
         // Usamos WHILE para buscar y parar cuando lo tengamos
         while (i < lista.length && !encontrado) {
-            // Verificamos que la plaza no esté vacía (null) y comparamos matrícula
+            // Verificamos que la plaza no esté vacía y comparamos matrícula
             if (lista[i] != null && lista[i].getMatricula().equalsIgnoreCase(matBuscada)) {
-                System.out.println("¡Bus localizado!");
+                System.out.println("Bus localizado");
                 // Mostramos los conductores usando el método HashMap
                 System.out.println("Conductores asignados: " + lista[i].getConductores());
                 encontrado = true; // Al ponerlo a true, el bucle se detendrá en la próxima vuelta
@@ -128,7 +128,7 @@ public class Ejercicio3T11BusesPlasencia {
         }
 
         if (!encontrado) {
-            System.out.println("No hay ningún autobús con esa matrícula.");
+            System.out.println("No hay ningún autobús con esa matrícula");
         }
     }
 
@@ -157,7 +157,7 @@ public class Ejercicio3T11BusesPlasencia {
         }
 
         if (!encontrado) {
-            System.out.println("No se ha encontrado ese DNI en ningún autobús de la estación.");
+            System.out.println("No se ha encontrado ese DNI en ningún autobús de la estación");
         }
     }
 
@@ -189,10 +189,10 @@ public class Ejercicio3T11BusesPlasencia {
 
         // Al final del trayecto, comprobamos si encontramos algún bus
         if (plazaGanadora != -1) {
-            System.out.println("El autobús con mayor número de conductores está en la dársena: "
+            System.out.println("El autobús con mayor número de conductores está en la plaza: "
                     + plazaGanadora);
         } else {
-            System.out.println("La estación está actualmente vacía.");
+            System.out.println("La estación está actualmente vacía");
         }
     }
 
