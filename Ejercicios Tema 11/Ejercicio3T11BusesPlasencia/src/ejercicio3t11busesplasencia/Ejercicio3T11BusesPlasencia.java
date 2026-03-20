@@ -1,5 +1,8 @@
 package ejercicio3t11busesplasencia;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /**
  * Diseña un programa en Java para gestionar los autobuses de la estación de
  * Plasencia.
@@ -14,26 +17,228 @@ package ejercicio3t11busesplasencia;
  * nombre.
  *
  * • El programa dispondrá del siguiente menú:
- * 
- * • Aparcar (pedirá un número, que será la posición del vector donde deberemos 
- * aparcar el autobús. Si la posición está ocupada, se volverá a pedir hasta 
+ *
+ * • Aparcar (pedirá un número, que será la posición del vector donde deberemos
+ * aparcar el autobús. Si la posición está ocupada, se volverá a pedir hasta
  * encontrar una libre).
- * 
- * • Mostrar dársenas libres. 
- * 
+ *
+ * • Mostrar dársenas libres.
+ *
  * • Buscar autobús (método que muestre toda la información del autobús a partir
- * de su matrícula). 
- * 
- * • Buscar conductor (Mostrará la matrícula del autobús que tiene asignado). 
- * 
- * • Método que retorne la posición del vector donde se encuentra el autobús con 
+ * de su matrícula).
+ *
+ * • Buscar conductor (Mostrará la matrícula del autobús que tiene asignado).
+ *
+ * • Método que retorne la posición del vector donde se encuentra el autobús con
  * mayor número de conductores asignados.
  *
  * @author KevinNS
  */
 public class Ejercicio3T11BusesPlasencia {
+    
+    /**
+     * Método que primero comprueba si una plaza está libre o no y que luego 
+     * pide los datos del conductor y del autobus al usuario para crearlos y 
+     * aparcar el bus
+     * 
+     * @param lista 
+     */
+    public static void aparcarBus(Autobus[]lista){
+        Scanner entrada = new Scanner(System.in);
+        
+        // Creamos un bucle que se repetirá si la plaza está libre o ya está ocupada
+        int posicion;
+        
+        do {
+            System.out.println("¿En que plaza quieres aparcar? (0-5): ");
+            posicion = entrada.nextInt();
+            
+            // Si la posición introducida es menor que 0 y mayor que 5 será errónea
+            if (posicion < 0 || posicion > 5) {
+                System.out.println("Error. Solo hay plazas de la 0 a la 5");
+            }else if (lista[posicion] != null) { // Si la celda no es null hay un bus allí
+                System.out.println("Esa plaza ya está ocupada");
+                
+            }
+                
+            } while (posicion < 0 || posicion > 5 || lista[posicion] != null);
+        
+        entrada.nextLine();
+        
+        // Una vez comprobado si la plaza esta libre o no pedimos los datos del bus y del conductor
+        
+        System.out.println("Matrícula: ");
+        String matricula = entrada.nextLine();
+        // Creamos el objeto y lo metemos en el hueco del array
+        Autobus nuevoBus = new Autobus(matricula);
+        
+        // Añadimos un conductor al mapa interno del bus usando .put
+        System.out.println("DNI conductor: ");
+        String dniC = entrada.nextLine();
+        System.out.println("Nombre conductor: ");
+        String nombreC = entrada.nextLine();
+        // Ahora le añadimos el conductor al bus
+        nuevoBus.getConductores().put(dniC, nombreC);
+        
+        // Guardamos el objeto en la posición elegida
+        lista[posicion] = nuevoBus;
+        System.out.println("Autobus aparcado con éxito");
+    }
+    
+    /**
+     * Método que muestra las plazas libres
+     * 
+     * @param lista 
+     */
+    public static void verLibre(Autobus[]lista){
+        System.out.println("---PLAZAS DISPONIBLES---");
+        // Recorremos la lista
+        for (int i = 0; i < lista.length; i++) {
+            // Si la celda es null, signifíca que no hay ningún Aubosu ahí
+            if (lista[i] == null) {
+                System.out.println(i + " ");
+            }
+            
+        }
+        System.out.println();
+    }
+    
+    /**
+     * Método que busca un bus con la matrícula indicada por el usuario
+     * 
+     * @param lista 
+     */
+    public static void buscarMatricula(Autobus[]lista){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Indica la matrícula: ");
+        String matBuscada = entrada.nextLine();
+        
+        // Recorremos elk array buscando el objeto que coincida
+        for (Autobus bus : lista) {
+            if (bus != null && bus.getMatricula().equalsIgnoreCase(matBuscada)) {
+                // Si lo encontramos, mostramos los conductores asignados
+                System.out.println("Encontrado. Conductores asignados: " + bus.getConductores());
+                return; // Salimos del método al encontrarlo
+                
+            }
+            
+        }
+        System.out.println("No hay ningún autobús con esa matrícula");
+    }
+    
+    /**
+     * Método que localiza al conductor con el DNI introducido por el usuario
+     * y muestra el autobús que tiene asignado
+     * 
+     * @param lista 
+     */
+    public static void localizarDni(Autobus[]lista){
+        Scanner entrada = new Scanner(System.in);
+        
+        // Preguntamos al usuario que DNI quiere buscar
+        System.out.println("DNI a buscar: ");
+        String dniC = entrada.nextLine();
+        
+        // Recorremos la lista
+        for (Autobus bus : lista) {
+            // Comprobamos si el mapa de cada bus tiene esa clave (DNI)
+            if (bus != null && bus.getConductores().containsKey(dniC)) {
+                System.out.println("Ese conductor está en el bus con matrícula: " 
+                        + bus.getMatricula());
+                return;
+            }
+        }
+        System.out.println("No se ha encontrado ese DNI en ningún bus");
+    }
+    
+    /**
+     * Método que muestra el bus (con su plaza) que tiene más conductores
+     * asignados
+     * 
+     * @param lista 
+     */
+    public static void busConMasPersonal(Autobus[]lista){
+        // Empzamos buscando con los valores mas bajos posibles
+        int max = -1;
+        int plazaGanadora = -1;
+        
+        // Recorremos la lista
+        for (int i = 0; i < lista.length; i++) {
+            if (lista[i] != null) {
+                // Usamos .size para saber cuántos conductores tiene el mapa
+                int numCond = lista[i].getConductores().size();
+                if (numCond > max) {
+                    max = numCond;
+                    plazaGanadora = i;
+                }
+            }
+            
+        }
+        if (plazaGanadora != -1) {
+            System.out.println("El bus con más conductores está en la plaza: " 
+                    + plazaGanadora);
+        }else{
+            System.out.println("La estación está vacía");
+        }
+    }
+
+    /**
+     * Método que muestra el menú
+     */
+    public static void mostrarMenu() {
+        System.out.println("---------------------------------------------------");
+        System.out.println("-----------ESTACION DE BUS DE PLASENCIA------------");
+        System.out.println("------------1. Aparcar bus-------------------------");
+        System.out.println("------------2. Plazas libres-----------------------");
+        System.out.println("------------3. Buscar bus--------------------------");
+        System.out.println("------------4. Buscar conductor--------------------");
+        System.out.println("------------5. Mayor número conductores------------");
+        System.out.println("------------6. SALIR DEL MENU----------------------");
+        System.out.println("---------------------------------------------------");
+    }
 
     public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        // Creamos el vector de 6 celdas
+        Autobus[] plazas = new Autobus[6];
+
+        // Creamos el menú controlando excepciones
+        int opcion = 0;
+        do {
+            try {
+                mostrarMenu();
+                opcion = entrada.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        aparcarBus(plazas);
+                        break;
+                    case 2:
+                        verLibre(plazas);
+                        break;
+                    case 3:
+                        buscarMatricula(plazas);
+                        break;
+                    case 4:
+                        localizarDni(plazas);
+                        break;
+                    case 5:
+                        busConMasPersonal(plazas);
+                        break;
+                    case 6:
+                        System.out.println("Saliendo del menú.....");
+                        break;
+                    default:
+                        System.out.println("Opción incorrecta");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Error. Has introducido una letra");
+                entrada.nextLine();
+            }
+
+        } while (opcion != 6);
 
     }
 

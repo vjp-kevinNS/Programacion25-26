@@ -21,6 +21,13 @@ public class Autobus {
         this.conductores = new HashMap<>();
     }
     
+    // Creamos un constructor para usar cuando se haga new Autobus
+    public Autobus(String matricula){
+        this.matricula = matricula;
+        // Al crear el bus, le asignamos su propio archivador de conductores vacío
+        this.conductores = new HashMap<>();
+    }
+    
     // Creamos los contructores parametrizados
 
     public Autobus(String matricula, HashMap<String, String> conductores) {
