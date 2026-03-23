@@ -6,28 +6,25 @@ package ejercicio6t11campañadonaciones;
  *
  * @author KevinNS
  */
-public class Donacion {
-    
+public class Donacion implements Comparable<Donacion> {
+
     // Creamos los atributos
     private String donante;
     private double importe;
-    
-    // Creamos los constructores por defecto
 
+    // Creamos los constructores por defecto
     public Donacion() {
         this.donante = "";
         this.importe = 0;
     }
-    
-    // Creamos los construcotres parametrizados
 
+    // Creamos los construcotres parametrizados
     public Donacion(String donante, double importe) {
         this.donante = donante;
         this.importe = importe;
     }
-    
-    // Creamos los getters y setters
 
+    // Creamos los getters y setters
     public String getDonante() {
         return donante;
     }
@@ -43,14 +40,23 @@ public class Donacion {
     public void setImporte(double importe) {
         this.importe = importe;
     }
-    
-    // Creamos To String
 
+    // Creamos To String
     @Override
     public String toString() {
         return "Donacion | " + " Donante: " + donante + " | Importe: " + importe;
     }
-    
-    
+
+    // Mñetodos necesarios
+    @Override
+    public int compareTo(Donacion otra) {
+        if (this.importe < otra.importe) {
+            return 1; // El menor va después
+        }
+        if (this.importe > otra.importe) {
+            return -1; // El mayor va antes
+        }
+        return this.donante.compareTo(otra.donante); // Si el dinero es igual, decide el nombre
+    }
 
 }

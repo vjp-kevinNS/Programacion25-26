@@ -1,6 +1,8 @@
 package ejercicio6t11campañadonaciones;
 
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * • Clase Campania, que almacenará un conjunto de donaciones y el nombre de la
@@ -12,27 +14,15 @@ public class Campania {
 
     // Creamos los atributos
     private String nombreCampania;
-    private ArrayList<Donacion> listaDonaciones;
+     private Set<Donacion> listaDonaciones;
 
-    // Creamos los contructores por defecto
+    // Creamos los constructores parametrizados
     public Campania() {
         this.nombreCampania = "";
-        this.listaDonaciones = new ArrayList<>();
+        this.listaDonaciones = new TreeSet<>();
     }
     
-    public Campania(String nombreCampania) {
-        this.nombreCampania = nombreCampania;
-        this.listaDonaciones = listaDonaciones;
-    }
-    
-    // Creamos los constructores parametrizados
-    
-    public Campania(String nombreCampania, ArrayList<Donacion> listaDonaciones) {
-        this.nombreCampania = nombreCampania;
-        this.listaDonaciones = listaDonaciones;
-    }
-    
-    // Creamos los getters y setters
+    // Creamos lso getters y setters
 
     public String getNombreCampania() {
         return nombreCampania;
@@ -42,13 +32,14 @@ public class Campania {
         this.nombreCampania = nombreCampania;
     }
 
-    public ArrayList<Donacion> getListaDonaciones() {
+    public Set<Donacion> getListaDonaciones() {
         return listaDonaciones;
     }
 
-    public void setListaDonaciones(ArrayList<Donacion> listaDonaciones) {
+    public void setListaDonaciones(Set<Donacion> listaDonaciones) {
         this.listaDonaciones = listaDonaciones;
     }
+    
     
     // Creamos To String
 
