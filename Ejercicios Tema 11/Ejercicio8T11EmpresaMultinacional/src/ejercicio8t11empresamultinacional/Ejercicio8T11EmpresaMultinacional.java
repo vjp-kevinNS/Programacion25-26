@@ -1,20 +1,42 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package ejercicio8t11empresamultinacional;
 
 /**
+ * Una importante empresa multinacional nos ha solicitado un programa para
+ * gestionar las distintas sedes que tiene repartidas a lo largo del mundo. Para
+ * ello, dispondremos de un arrayList de ciudades.
+ *
+ * De cada ciudad, almacenaremos su nombre y un conjunto de sedes (elige el tipo
+ * de conjunto que prefieras).
+ *
+ * • De cada sede almacenaremos el nombre de la sede y sus ingresos anuales.
+ *
+ * • Implementa las siguientes opciones para el software: 
+ * 
+ * • Añadir una ciudad(al menos pediremos los datos de una sede. Después de 
+ * añadir cada sede, preguntaremos al usuario si desea seguir añadiendo sedes). 
+ * 
+ * • Mostrar todas las ciudades junto con sus sedes. 
+ * 
+ * • Método que muestre el nombre de las sedes cuyos ingresos anuales son 
+ * superiores a la media. 
+ * 
+ * • Buscar por nombre de sede. (El método retornará un booleano). 
+ * 
+ * • Añadir sede (pediremos el nombre de la ciudad y, si ésta existe en el 
+ * arrayList, pediremos los datos de la nueva sede y los insertaremos). 
+ * 
+ * • Mostrar todas las sedes ordenadas de mayor a menor número de ingresos 
+ * anuales 
+ * 
+ * (PISTA: Utiliza una estructura de datos donde ir añadiendo todas las sedes de 
+ * manera ordenada).
  *
  * @author KevinNS
  */
 public class Ejercicio8T11EmpresaMultinacional {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+
     }
-    
+
 }
