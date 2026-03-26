@@ -258,7 +258,6 @@ public class Ejercicio7T11CampañaDonacionesContinuacion {
 
             } catch (Exception e) {
                 System.out.println("Error desconocido");
-
                 entrada.nextLine();
             }
 
