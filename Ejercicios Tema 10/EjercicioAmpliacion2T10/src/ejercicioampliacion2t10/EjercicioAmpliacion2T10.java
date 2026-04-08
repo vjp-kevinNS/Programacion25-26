@@ -31,6 +31,145 @@ import java.util.Scanner;
  * @author KevinNS
  */
 public class EjercicioAmpliacion2T10 {
+    
+    /**
+     * Método que añade las direcciones de las viviendas con los datos intruducidos
+     * por el usuario
+     * 
+     * @param casas 
+     */
+    public static void añadirDireccion(Vivienda[] casas){
+        Scanner entrada = new Scanner (System.in);
+        
+        // Recorremos con un for normal ya que el tamaño es fijo (3)
+        for (int i = 0; i < casas.length; i++) {
+            // Pedimos la dirección al usuario
+            System.out.println("Introduce dirección para la vivienda " + i + ": ");
+            String direccion = entrada.nextLine();
+            
+            // Creamos el objeto Vivienda y lo metemos en el hueco i del vector
+            casas[i] = new Vivienda(direccion);     
+        }
+        System.out.println("Direcciones guardadas");
+    }
+    
+    /**
+     * Método que añade la actividad a la vivienda que elija el usuario, además 
+     * de pedir los datos de la actividad
+     * 
+     * @param casas 
+     */
+    public static void añadirActividad(Vivienda[] casas){
+        Scanner entrada = new Scanner(System.in);
+        int posicion = -1;
+        
+        // Creamos un bucle while para asegurar que el usuario mete una posición válida (0, 1, 2)
+        while (posicion < 0 || posicion >= casas.length) {            
+            // Pedimos la posición al usuario
+            System.out.println("¿En qué posición de vivienda quieres añadir?: ");
+            posicion = entrada.nextInt();
+            
+            // Si introduce una posición no válida lo decimos
+            if (posicion < 0 || posicion >= casas.length) {
+                System.out.println("Error. Posición incorrecta");
+            }
+        }
+        // Comprobamos si la vivienda ha sido creada en la opción 1
+        if (casas[posicion] == null) {
+            System.out.println("Esa vivienda no tiene dirección");
+            return;
+        }
+        entrada.nextLine(); // Limpiamos buffer
+        // Pedimos al usuario los datos de la actividad
+        System.out.println("Nombre actividad: ");
+        String nombreAct = entrada.nextLine();
+        System.out.println("Tipo: ");
+        String tipoAct = entrada.nextLine();
+        System.out.println("¿Es familiar? (si/no): ");
+        String respuesta= entrada.nextLine();
+        boolean familiar = respuesta.equalsIgnoreCase("si");
+        
+        // Añadimos la actividad al ArrayList de la vivienda elegida
+        casas[posicion].getListaActividades().add(new Actividad(nombreAct, tipoAct, familiar));
+        System.out.println("Actividad añadida a la vivienda " + posicion);
+    }
+    
+    /**
+     * Método que muestra todas las viviendas
+     * 
+     * @param casas 
+     */
+    public static void mostrarViviendas(Vivienda[] casas){
+        // Recorremos el vector de 3 viviendas
+        for (Vivienda casa : casas) {
+            if (casa != null) { // Solo si el hueco noi está vacío
+                System.out.println("VIVIENDA EN: " + casa.getDireccion());
+                // Recorremos la lista de actividades de la vivienda
+                for (Actividad act : casa.getListaActividades()) {
+                    System.out.println("-> " + act.getNombre() + " (" + act.getTipo() + ")");
+                }
+            }
+        }
+    }
+    
+    /**
+     * Método que muestra todas las actividades familiares
+     * 
+     * @param casas 
+     */
+    public static void mostrarTodasActFamiliares(Vivienda[] casas){
+        System.out.println("---ACTIVIDADES FAMILIARES---");
+        for (Vivienda casa : casas) {
+            if (casa != null) {
+                for (Actividad act : casa.getListaActividades()) {
+                    if (act.isFamiliar()) { // Filtro booleano
+                        System.out.println("-> " + act.getNombre() + "(En "+ casa.getDireccion() + ")");
+                    }
+                }
+            }
+        }
+    }
+    
+    /**
+     * Método que muestra el tipo de actividades que el usuario elija
+     * 
+     * @param casas 
+     */
+    public static void mostrarActPorTipo(Vivienda[] casas){
+        Scanner entrada = new Scanner(System.in);
+        
+        // Preguntamos al usuario qué actividad busca
+        System.out.println("¿Qué tipo de actividad buscas?: ");
+        String actBuscada = entrada.nextLine();
+        
+        for (Vivienda casa : casas) {
+            if (casa != null) {
+                for (Actividad act : casa.getListaActividades()) {
+                    if (act.getTipo().equalsIgnoreCase(actBuscada)) {
+                        System.out.println("-> " + act.getNombre() + " [Casa: " 
+                                + casa.getDireccion() + "]");
+                    }
+                }
+            }
+        }
+    }
+    
+    /**
+     * Método que muestra el número total de actividades creadas
+     * 
+     * @param casas 
+     */
+    public static void mostrarNumActividades(Vivienda[] casas){
+        int acumulador = 0;
+        for (Vivienda casa : casas) {
+            if (casa != null) {
+                // Sumamos el tamaño de cada lista individual
+                acumulador += casa.getListaActividades().size();
+            }
+        }
+        System.out.println("Total de actividades registradas entre las 3 viviendas: " 
+                + acumulador );
+    }
 
     /**
      * Método que muestra el menú
@@ -38,7 +177,7 @@ public class EjercicioAmpliacion2T10 {
     public static void mostrarMenu() {
         System.out.println("---------------------------------------------------");
         System.out.println("-----------------GESTION 3 VIVIENDAS---------------");
-        System.out.println("----------------1. Añadir viviendas----------------");
+        System.out.println("----------------1. Añadir dirección----------------");
         System.out.println("----------------2. Añadir actividades--------------");
         System.out.println("----------------3. Mostrar viviendas---------------");
         System.out.println("----------------4. Mostrar actividades familiares--");
@@ -62,22 +201,22 @@ public class EjercicioAmpliacion2T10 {
                 opcion = entrada.nextInt();
                 switch (opcion) {
                     case 1:
-
+                        añadirDireccion(viviendas);
                         break;
                     case 2:
-
+                        añadirActividad(viviendas);
                         break;
                     case 3:
-
+                        mostrarViviendas(viviendas);
                         break;
                     case 4:
-
+                        mostrarTodasActFamiliares(viviendas);
                         break;
                     case 5:
-
+                        mostrarActPorTipo(viviendas);
                         break;
                     case 6:
-
+                        mostrarNumActividades(viviendas);
                         break;
                     case 7:
                         System.out.println("Saliendo del programa...");
