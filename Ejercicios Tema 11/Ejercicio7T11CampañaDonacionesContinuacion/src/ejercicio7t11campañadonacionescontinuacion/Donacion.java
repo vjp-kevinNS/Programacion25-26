@@ -46,7 +46,7 @@ public class Donacion implements Comparable<Donacion> {
         return "Donacion | " + " Donante: " + donante + " | Importe: " + importe;
     }
 
-    // Mñetodos necesarios
+    // Métodos necesarios
     @Override
     public int compareTo(Donacion otra) {
         if (this.importe < otra.importe) {

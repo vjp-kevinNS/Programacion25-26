@@ -250,15 +250,15 @@ public class Ejercicio7T11CampañaDonacionesContinuacion {
             } catch (InputMismatchException e) {
                 System.out.println("Error. Has introducido una letra");
 
-            } catch (NullPointerException e) {
-                System.out.println("Error. Hay posiciones nulas");
+//            } catch (NullPointerException e) {
+//                System.out.println("Error. Hay posiciones nulas");
 
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("Error. Posición fuera de rango");
 
-            } catch (Exception e) {
-                System.out.println("Error desconocido");
-                entrada.nextLine();
+//            } catch (Exception e) {
+//                System.out.println("Error desconocido");
+//                entrada.nextLine();
             }
 
         } while (opcion != 7);
