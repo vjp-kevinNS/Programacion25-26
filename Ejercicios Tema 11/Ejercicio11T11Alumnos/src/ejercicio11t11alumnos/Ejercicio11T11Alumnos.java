@@ -35,7 +35,7 @@ public class Ejercicio11T11Alumnos {
         Scanner entrada = new Scanner(System.in);
 
         // Pedimos los datos del alumno al usuario
-        System.out.println("Introduco DNI: ");
+        System.out.println("Introduce DNI: ");
         String dni = entrada.nextLine();
         System.out.println("Nº de expediente: ");
         int expediente = entrada.nextInt();
@@ -62,7 +62,7 @@ public class Ejercicio11T11Alumnos {
         System.out.println("----LISTA DE ALUMNOS ORDENADOS (MENOR A MAYOR)----");
         // Recorremos el conjunto entero con for each
         for (Alumno alumno : lista) {
-            System.out.println("DNI: " + alumno.getDni() + " | Espediente: "
+            System.out.println("DNI: " + alumno.getDni() + " | Expediente: "
                     + alumno.getNumExpediente() + " | Nota media: " + alumno.getNotaMedia());
         }
     }
