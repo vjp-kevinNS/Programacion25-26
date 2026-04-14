@@ -1,0 +1,8 @@
+Nombre: kevin
+Edad: 34
+Teléfono: 65423423
+---------------------
+Nombre: pepe
+Edad: 45
+Teléfono: 456789987
+---------------------

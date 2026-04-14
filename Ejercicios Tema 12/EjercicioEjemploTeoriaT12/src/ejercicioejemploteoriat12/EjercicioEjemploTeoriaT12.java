@@ -11,7 +11,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * * Programa que escribe en un fichero nombres que nos da el usuario separados
+ * Programa que escribe en un fichero nombres que nos da el usuario separados
  * por punto y coma y luego lee el fichero mostrando un nombre en cada fila, sin
  * los puntos y coma.
  *
