@@ -93,7 +93,6 @@ public class EjercicioRepaso2 {
         }
         System.out.println("Personas borradas con éxito. Se han borrado: " + contador);
     }
-    
 
     public static void clonarListaPorEdad(ArrayList<Persona> lista) {
         Scanner entrada = new Scanner(System.in);
@@ -119,6 +118,18 @@ public class EjercicioRepaso2 {
         mostrarPersonas(nuevaLista);
     }
 
+    public static void menoresDeEdad(ArrayList<Persona> lista) {
+        // Recorremos la lista
+        for (Persona persona : lista) {
+            if (persona.getEdad() < 18) {
+                String nuevoNombre; // Para guardar el nuevo nombre
+                nuevoNombre = persona.getNombre() + "(Soy menor de edad)";
+                persona.setNombre(nuevoNombre);
+            }
+        }
+        System.out.println("Actualizado los menores de edad");
+    }
+
     /**
      * Método que muestra el menú
      */
@@ -129,7 +140,8 @@ public class EjercicioRepaso2 {
         System.out.println("3. Buscar persona por nombre");
         System.out.println("4. Eliminar persona con la edad menor indicada");
         System.out.println("5. Clonar lista por edad");
-        System.out.println("6. Salir del menú...");
+        System.out.println("6. Actualizar nombre de los menor de edad");
+        System.out.println("7. Salir del menú...");
     }
 
     public static void main(String[] args) {
@@ -162,6 +174,9 @@ public class EjercicioRepaso2 {
                         clonarListaPorEdad(persona);
                         break;
                     case 6:
+                        menoresDeEdad(persona);
+                        break;
+                    case 7:
                         System.out.println("Saliendo del programa...");
                         break;
                     default:
@@ -172,7 +187,7 @@ public class EjercicioRepaso2 {
                 System.out.println("Error. Has introducido una letra");
             }
 
-        } while (opcion != 6);
+        } while (opcion != 7);
     }
 
 }
