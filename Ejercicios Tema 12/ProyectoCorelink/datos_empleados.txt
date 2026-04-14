@@ -1,0 +1,56 @@
+Nombre;Telefono;Ubicacion;Rol
+Laura;691347588;Madrid;Ingeniera
+Carlos;745927787;Zona Cero;Supervisor
+Ana;647234451;Zona Cero;Técnica
+Jorge;650987211;Sevilla;Analista
+Marta;600300781;Zona Cero;Seguridad
+Luis;665899248;Valencia;Operador
+Elena;678445120;Zona Cero;Mantenimiento
+Pablo;600900812;Barcelona;Ingeniero
+Sofia;609811131;Zona Cero;Técnica
+Raul;631314280;Bilbao;Supervisor
+Clara;675849909;Zona Cero;Seguridad
+Diego;609005083;Madrid;Analista
+Lucia;601666717;Zona Cero;Operador
+Andres;677844902;Sevilla;Ingeniero
+Carmen;602883949;Zona Cero;Mantenimiento
+Alberto;601511252;Valencia;Técnico
+Sara;675990323;Zona Cero;Seguridad
+Victor;601373432;Madrid;Analista
+Noelia;601434759;Zona Cero;Operador
+Hugo;601559631;Barcelona;Ingeniero
+Irene;601636715;Zona Cero;Técnica
+Fernando;601776808;Bilbao;Supervisor
+Patricia;601858920;Zona Cero;Mantenimiento
+Mario;602171241;Madrid;Analista
+Nuria;602825378;Zona Cero;Seguridad
+Adrian;602633434;Sevilla;Operador
+Beatriz;602434575;Zona Cero;Técnica
+Oscar;602555646;Valencia;Ingeniero
+Rosa;602661710;Zona Cero;Mantenimiento
+Julio;602724580;Madrid;Supervisor
+Eva;602884920;Zona Cero;Operador
+Daniel;603110220;Barcelona;Analista
+Monica;603212350;Zona Cero;Seguridad
+Sergio;603313450;Sevilla;Técnico
+Cristina;603441550;Zona Cero;Mantenimiento
+Ivan;603553660;Madrid;Ingeniero
+Alicia;603606725;Zona Cero;Operador
+Ruben;603177853;Bilbao;Supervisor
+Teresa;603808649;Zona Cero;Técnica
+Gonzalo;604191203;Valencia;Analista
+Elisa;604267323;Zona Cero;Seguridad
+Samuel;61433344452;Madrid;Operador
+Paula;654454355;Zona Cero;Mantenimiento
+Ricardo;664535896;Barcelona;Ingeniero
+Veronica;604736847;Zona Cero;Técnica
+Emilio;628591057;Sevilla;Supervisor
+Lorena;657935419;Zona Cero;Operador
+Jaime;632674390;Madrid;Analista
+Silvia;687439012;Zona Cero;Seguridad
+Marcos;673245732;Valencia;Ingeniero
+Lidia;697327835;Zona Cero;Mantenimiento
+Bruno;680216793;Bilbao;Supervisor
+Carla;680137645;Zona Cero;Técnica
+Esteban;608326791;Madrid;Operador
+Natalia;613547832;Zona Cero;Seguridad
