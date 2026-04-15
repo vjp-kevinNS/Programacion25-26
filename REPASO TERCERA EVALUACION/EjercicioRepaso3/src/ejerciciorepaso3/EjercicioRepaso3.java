@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  *
- * Modelo-Matrícula-Planta-Número de aparcamiento
+ * Clase Aparcamiento:  Modelo-Matrícula-Planta-Número de aparcamiento
  *
  * Añadir un aparcamiento
  *
@@ -82,10 +82,15 @@ public class EjercicioRepaso3 {
         }
     }
 
+    /**
+     * Método que añade aparcamientos comprobando los repetidos
+     * 
+     * @param lista 
+     */
     public static void añadirAparcamientoComprobandoRepetido(ArrayList<Aparcamiento> lista) {
         Scanner entrada = new Scanner(System.in);
 
-        // Pedimos los datos al usuario: Modelo-Matrícula-Planta-Número de aparcamiento
+        // Pedimos los datos al usuario:
         System.out.println("Modelo del vehículo: ");
         String modeloUsu = entrada.nextLine();
         System.out.println("Matrícula del vehículo: ");
@@ -114,19 +119,44 @@ public class EjercicioRepaso3 {
             System.out.println("Aparcamiento creado");
             lista.add(nuevoAparcamiento);
         }
-    }    
-        /**
-         * Método que muestra el menú
-         */
+    }
+    
+    /**
+     * Método que elimina un vehículo en concreto del aparcamiento
+     * 
+     * @param lista 
+     */
+    public static void eliminarCocheDelAparcamiento(ArrayList<Aparcamiento> lista){
+        Scanner entrada = new Scanner(System.in);
+        
+        // Preguntamos al usuario que aparcamiento(coche)quiere eliminar en función de su matrícula
+        System.out.println("¿Qué matricula quieres eliminar?");
+        String matriculaUsu = entrada.nextLine();
+        
+        boolean encontrado = false;
+        
+        // Recorremos la lista
+        for (Aparcamiento aparcamiento : lista) {
+            if (aparcamiento.getMatricula().equalsIgnoreCase(matriculaUsu)) {
+                encontrado = true;
+                lista.remove(aparcamiento);
+            }
+        }
+        System.out.println("Se ha borrado del aparcamiento el vehículo con la matrícula " 
+                + matriculaUsu);
+    }
+
+    /**
+     * Método que muestra el menú
+     */
     public static void mostrarMenu() {
         System.out.println("GESTION DE APARCAMIENTOS");
         System.out.println("1. Añadir aparcamiento");
         System.out.println("2. Mostrar todos los aparcamientos");
         System.out.println("3. Buscar mi coche");
-        System.out.println("4.          ");
-        System.out.println("5.          ");
-        System.out.println("6.          ");
-        System.out.println("7. Salir del menú...");
+        System.out.println("4. Añadir aparcamiento comprobando repetidos");
+        System.out.println("5. Eliminar aparcamiento");
+        System.out.println("6. Salir del menú...");
     }
 
     public static void main(String[] args) {
@@ -144,7 +174,7 @@ public class EjercicioRepaso3 {
                 opcion = entrada.nextInt();
                 switch (opcion) {
                     case 1:
-                        añadirAparcamientoComprobandoRepetido(listaAparcar);
+                        añadirAparcamiento(listaAparcar);
                         break;
                     case 2:
                         mostrarTodos(listaAparcar);
@@ -153,15 +183,12 @@ public class EjercicioRepaso3 {
                         buscarCoche(listaAparcar);
                         break;
                     case 4:
-
+                        añadirAparcamientoComprobandoRepetido(listaAparcar);
                         break;
                     case 5:
-
+                        eliminarCocheDelAparcamiento(listaAparcar);
                         break;
                     case 6:
-
-                        break;
-                    case 7:
                         System.out.println("Saliendo del programa...");
                         break;
                     default:
@@ -170,8 +197,9 @@ public class EjercicioRepaso3 {
 
             } catch (InputMismatchException e) {
                 System.out.println("Error. Has introducido una letra");
+                entrada.nextLine();
             }
 
-        } while (opcion != 7);
+        } while (opcion != 6);
     }
 }
