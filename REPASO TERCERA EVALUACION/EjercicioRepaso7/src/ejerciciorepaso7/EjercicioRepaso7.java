@@ -10,7 +10,8 @@ import java.util.Scanner;
 
 /**
  * EMPLEADO: ID-DNI-NOMBRE-APELLIDO-EDAD-SALARIO-ARRAYLIST DE TAREA
- *
+ * TAREA: LOCALDATE: FECHA DE CREACION-DESCRIPCION
+ * 
  * Crear mapa de empleados
  *
  * MENU:
@@ -117,7 +118,7 @@ public class EjercicioRepaso7 {
         Scanner entrada = new Scanner(System.in);
 
         // Preguntamos al usuario el dni del empleado que está buscando
-        System.out.println("¿Qué DNI estáss buscando?: ");
+        System.out.println("¿Qué DNI estás buscando?: ");
         String dniUsu = entrada.nextLine();
 
         // Comprobamos si existe el empleado

@@ -107,6 +107,5 @@ public class Empleado {
         return "Empleado | " + " ID: " + id + " | DNI: " + dni + " | Nombre: " 
                 + nombre + " | Apellido: " + apellido + " | Edad: " + edad 
                 + " | Salario: " + salario + " | Lista Tarea: " + listaTarea;
-    }
-    
+    }  
 }
