@@ -240,7 +240,7 @@ public class EjercicioRepaso11 {
      */
     public static void mostrarCochesPorId(Map<Integer, Coche> mapa){
        // Pasamos el mapa a ArrayList
-       ArrayList<Coche>lista = new ArrayList<>();
+       ArrayList<Coche>lista = new ArrayList<>(mapa.values());
        
        // Ordenamos usando el compareTo
        Collections.sort(lista);
