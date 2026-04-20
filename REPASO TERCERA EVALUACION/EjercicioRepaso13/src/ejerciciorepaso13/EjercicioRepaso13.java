@@ -135,7 +135,7 @@ public class EjercicioRepaso13 {
 
         // Pedimos el ID
         System.out.println("Introduce el ID del producto a eliminar: ");
-        float idBuscado = entrada.nextFloat();
+        int idBuscado = entrada.nextInt();
         System.out.println(mapa);
         // Comprobamos si existe
         if (mapa.containsKey(idBuscado)) {
