@@ -1,4 +1,4 @@
 Becario: kevin nuñez
-Sexo: H | Edad: 32 años
+Sexo: H | Edad: 32
 Suspensos: 0 | Residencia Familiar: no
 Ingresos anuales: 5000000.0€
