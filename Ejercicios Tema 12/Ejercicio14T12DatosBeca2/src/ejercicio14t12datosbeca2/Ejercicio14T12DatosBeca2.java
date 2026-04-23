@@ -60,8 +60,24 @@ public class Ejercicio14T12DatosBeca2 {
                 
                 // Saltamos el separador
                 br.readLine();
+                
+                // LLamamos al método del cálculo
+                double totalBeca = calcularBeca(edad,suspensos,residencia,ingresos);
+                
+                // Si tiene derecho a beca lo guardamos en el array
+                if (totalBeca > 0) {
+                    lista[contador] = "Becario: " + nombre + " | Beca: " + totalBeca + "€";
+                    contador++; // Incrementamos para el siguien becario
+                }
             }
-            
+            System.out.println("Se han encontrado " + contador + " becarios con derecho a ayuda");
+        }
+    }
+    
+    public static double calcularBeca(int edad, int suspensos, String residencia, double ingresos){
+        // Si tiene 2 o más suspensos no hay beca
+        if (suspensos >=2) {
+            return 0;
         }
     }
 
