@@ -35,8 +35,7 @@ public class EjercicioRepasoFicheros11Separadores {
         String numTelefono = entrada.nextLine();
 
         // Creamos un try-with-resources
-        try (FileWriter fw = new FileWriter("agenda.txt", true); 
-             PrintWriter pw = new PrintWriter(fw)) {
+        try (FileWriter fw = new FileWriter("agenda.txt", true); PrintWriter pw = new PrintWriter(fw)) {
 
             // Añadimos los datos al fichero, en este caso solo las variables separados por lo que queramos(";")
             pw.println(nombreContacto + ";" + edad + ";" + numTelefono);
@@ -75,9 +74,9 @@ public class EjercicioRepasoFicheros11Separadores {
             // Creamos un while con un array de String y usamos split
             while ((linea = br.readLine()) != null) {
                 String[] lineaArr = linea.split(";");
-                System.out.println("Nombre: "+lineaArr[0]);
-                System.out.println("Edad: "+lineaArr[1]);
-                System.out.println("Tlfn: "+lineaArr[2]);
+                System.out.println("Nombre: " + lineaArr[0]);
+                System.out.println("Edad: " + lineaArr[1]);
+                System.out.println("Tlfn: " + lineaArr[2]);
                 System.out.println("-----------------------------");
             }
         } catch (IOException e) {
@@ -114,15 +113,15 @@ public class EjercicioRepasoFicheros11Separadores {
             System.out.println("Nombre de contacto: ");
             String nombreCon = entrada.nextLine();
 
-            // Creamos un while con un array de String y usamos split
+            // Creamos un while 
             while ((linea = br.readLine()) != null) {
-                String[]lineArr = linea.split(";");
-                System.out.println("Nombre " + lineArr[0]);
-                System.out.println("Edad " + lineArr[1]);
-                System.out.println("Tlfno " + lineArr[2]);
 
+                // Si contiene ese nombre se mostrara, en este caso lo mostraremos creando un Array de String y usando split
                 if (linea.toLowerCase().contains(nombreCon.toLowerCase())) {
-                    System.out.println(linea);
+                    String[] lineArr = linea.split(";");
+                    System.out.println("Nombre " + lineArr[0]);
+                    System.out.println("Edad " + lineArr[1]);
+                    System.out.println("Tlfno " + lineArr[2]);
                 }
             }
         } catch (IOException e) {
