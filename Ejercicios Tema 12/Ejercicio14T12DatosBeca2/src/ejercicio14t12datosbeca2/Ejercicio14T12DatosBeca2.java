@@ -65,7 +65,7 @@ public class Ejercicio14T12DatosBeca2 {
 
                 // Extrameos ingresos
                 String linea4 = br.readLine();
-                // Quitamos los símbolos para que sea un número válido
+                // Quitamos los símbolos para que sea un número válido (.trim para eliminar espacios en blanco)
                 double ingresos = Double.parseDouble(linea4.split(": ")[1].replace("€", "").trim());
 
                 // Saltamos el separador
@@ -154,7 +154,7 @@ public class Ejercicio14T12DatosBeca2 {
             // LLamamos al método de procesarBecarios
             int cantidadConBeca = procesarBecarios(resultados);
             
-            // LLamamos al método apra mostrar el array por pantalla
+            // LLamamos al método para mostrar el array por pantalla
             mostrarLista(resultados, cantidadConBeca);
             
         } catch (FileNotFoundException e) {

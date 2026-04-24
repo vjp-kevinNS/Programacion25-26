@@ -27,11 +27,12 @@ public class Ejercicio12bisT12MasNumeros {
         int sumaAcumulada = 0; // Para guardar el total de la suma
 
         // Creamos try-with-resources
-        try (FileReader fr = new FileReader(ruta); BufferedReader br = new BufferedReader(fr)) {
+        try (FileReader fr = new FileReader(ruta); 
+             BufferedReader br = new BufferedReader(fr)) {
 
             String linea;
 
-            // Creamos un while para que le a el fichero línea a línea hasta el final
+            // Creamos un while para que lea el fichero línea a línea hasta el final
             while ((linea = br.readLine()) != null) {
 
                 // Dividimo la línea en pares usando el separado punto y coma
