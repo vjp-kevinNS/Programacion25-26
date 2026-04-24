@@ -63,7 +63,7 @@ public class Ejercicio5T12AgendaTxt {
     /**
      * Método que muestra el contenido del fichero
      */
-    public static void mostrarContenido(){
+    public static void mostrarContenido()throws FileNotFoundException, IOException{
         // Apuntamos al fichero
         File archivo = new File("agenda.txt");
         

@@ -35,7 +35,7 @@ public class EjercicioRepasoFicheros11Separadores {
         String numTelefono = entrada.nextLine();
 
         // Creamos un try-with-resources
-        try (FileWriter fw = new FileWriter("agenda.txt", true); 
+        try (FileWriter fw = new FileWriter("agenda2.txt"); 
              PrintWriter pw = new PrintWriter(fw)) {
 
             // Añadimos los datos al fichero, en este caso solo las variables separados por lo que queramos(";")
@@ -43,45 +43,44 @@ public class EjercicioRepasoFicheros11Separadores {
 
             System.out.println("Contacto añadido");
 
+        } catch (FileNotFoundException e) {
+            System.out.println("Error al abrir el archivo " + e.getMessage());
         } catch (IOException e) {
-            System.out.println("Error al escribir en el archivo " + e.getMessage());
+            System.out.println("Error al escribir del archivo " + e.getMessage());
         }
     }
 
     /**
-     * Método que muestra el contenido del fichero
+     * Método que muestra el contenido del fichero con separadores
      *
      * @throws FileNotFoundException
      * @throws IOException
      */
     public static void mostrarContenidoFichero() throws FileNotFoundException, IOException {
 
-        // Apuntamos al fichero
-        File fichero = new File("agenda.txt");
-
-        // Comprobamos si existe
-        if (!fichero.exists()) {
-            System.out.println("El fichero no existe aún");
-            return;
-        }
-
         // Creamos un try-witch-resources
-        try (FileReader fr = new FileReader(fichero); BufferedReader br = new BufferedReader(fr)) {
+        try (FileReader fr = new FileReader("agenda.txt"); 
+             BufferedReader br = new BufferedReader(fr)) {
 
             // Creamos la variable linea
             String linea;
             System.out.println("---CONTENIDO DEL FICHERO---");
-
-            // Creamos un while con un array de String y usamos split
-            while ((linea = br.readLine()) != null) {
-                String[] lineaArr = linea.split(";");
-                System.out.println("Nombre: "+lineaArr[0]);
-                System.out.println("Edad: "+lineaArr[1]);
-                System.out.println("Tlfn: "+lineaArr[2]);
-                System.out.println("-----------------------------");
+            
+            // Creamos un while y leemos la primera linea(nombre) hasta que sea null (AQUI TODO ES STRING)
+            while ((linea = br.readLine()) != null) {              
+                String edad = br.readLine();
+                String numTlfno = br.readLine();
+                
+                System.out.println(linea.split("|"));
+                
+                System.out.println("-------------------------------------------");
+                
             }
+            
+        } catch (FileNotFoundException e) {
+            System.out.println("Error al abrir el archivo " + e.getMessage());
         } catch (IOException e) {
-            System.out.println("Error al escribir en el archivo " + e.getMessage());
+            System.out.println("Error al leer del archivo " + e.getMessage());
         }
     }
 
@@ -94,17 +93,9 @@ public class EjercicioRepasoFicheros11Separadores {
     public static void mostrarContenidoPorNombre() throws FileNotFoundException, IOException {
         Scanner entrada = new Scanner(System.in);
 
-        // Apuntamos al fichero
-        File fichero = new File("agenda.txt");
-
-        // Comprobamos si existe
-        if (!fichero.exists()) {
-            System.out.println("El fichero aún no existe");
-            return;
-        }
-
         // Creamos un try-with-resources
-        try (FileReader fr = new FileReader(fichero); BufferedReader br = new BufferedReader(fr)) {
+        try (FileReader fr = new FileReader("agenda.txt"); 
+             BufferedReader br = new BufferedReader(fr)) {
 
             // Creamos la variable linea
             String linea;
@@ -114,19 +105,22 @@ public class EjercicioRepasoFicheros11Separadores {
             System.out.println("Nombre de contacto: ");
             String nombreCon = entrada.nextLine();
 
-            // Creamos un while con un array de String y usamos split
-            while ((linea = br.readLine()) != null) {
-                String[]lineArr = linea.split(";");
-                System.out.println("Nombre " + lineArr[0]);
-                System.out.println("Edad " + lineArr[1]);
-                System.out.println("Tlfno " + lineArr[2]);
+            // Leo una línea
+            linea = br.readLine();
+            
+            // Creamos un while y comprobamos el campo que introduce el usuario pasando todo a minúsculas
+            while (linea != null) {
 
                 if (linea.toLowerCase().contains(nombreCon.toLowerCase())) {
                     System.out.println(linea);
-                }
+                }               
+                //Leo otra línea
+                linea = br.readLine();
             }
+        } catch (FileNotFoundException e) {
+            System.out.println("Error al abrir el archivo " + e.getMessage());
         } catch (IOException e) {
-            System.out.println("Error al escribir en el archivo " + e.getMessage());
+            System.out.println("Error al leer del archivo " + e.getMessage());
         }
 
     }
