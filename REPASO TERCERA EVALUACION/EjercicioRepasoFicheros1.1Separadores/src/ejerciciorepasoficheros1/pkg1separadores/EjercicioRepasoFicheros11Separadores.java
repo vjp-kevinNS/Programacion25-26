@@ -35,8 +35,8 @@ public class EjercicioRepasoFicheros11Separadores {
         String numTelefono = entrada.nextLine();
 
         // Creamos un try-with-resources
-        try (FileWriter fw = new FileWriter("agenda2.txt"); 
-             PrintWriter pw = new PrintWriter(fw)) {
+        try (FileWriter fw = new FileWriter("agenda2.txt", true);                
+            PrintWriter pw = new PrintWriter(fw)) {
 
             // Añadimos los datos al fichero, en este caso solo las variables separados por lo que queramos(";")
             pw.println(nombreContacto + ";" + edad + ";" + numTelefono);
@@ -59,7 +59,7 @@ public class EjercicioRepasoFicheros11Separadores {
     public static void mostrarContenidoFichero() throws FileNotFoundException, IOException {
 
         // Creamos un try-witch-resources
-        try (FileReader fr = new FileReader("agenda.txt"); 
+        try (FileReader fr = new FileReader("agenda2.txt");
              BufferedReader br = new BufferedReader(fr)) {
 
             // Creamos la variable linea
@@ -68,13 +68,22 @@ public class EjercicioRepasoFicheros11Separadores {
 
             // Creamos un while con un array de String y usamos split
             while ((linea = br.readLine()) != null) {
+
+                if (linea.trim().isEmpty()) {
+                    continue;
+                }
                 String[] lineaArr = linea.split(";");
-                System.out.println("Nombre: " + lineaArr[0]);
-                System.out.println("Edad: " + lineaArr[1]);
-                System.out.println("Tlfn: " + lineaArr[2]);
-                System.out.println("-----------------------------");
+
+                if (lineaArr.length >= 3) {
+                    System.out.println("Nombre: " + lineaArr[0]);
+                    System.out.println("Edad: " + lineaArr[1]);
+                    System.out.println("Tlfn: " + lineaArr[2]);
+                    System.out.println("-----------------------------");
+
+                }
+
             }
-            
+
         } catch (FileNotFoundException e) {
             System.out.println("Error al abrir el archivo " + e.getMessage());
         } catch (IOException e) {
@@ -92,8 +101,7 @@ public class EjercicioRepasoFicheros11Separadores {
         Scanner entrada = new Scanner(System.in);
 
         // Creamos un try-with-resources
-        try (FileReader fr = new FileReader("agenda.txt"); 
-             BufferedReader br = new BufferedReader(fr)) {
+        try (FileReader fr = new FileReader("agenda2.txt"); BufferedReader br = new BufferedReader(fr)) {
 
             // Creamos la variable linea
             String linea;
@@ -105,7 +113,7 @@ public class EjercicioRepasoFicheros11Separadores {
 
             // Leo una línea
             linea = br.readLine();
-            
+
             // Creamos un while y comprobamos el campo que introduce el usuario pasando todo a minúsculas
             while (linea != null) {
 
@@ -116,7 +124,7 @@ public class EjercicioRepasoFicheros11Separadores {
                     System.out.println("Edad " + lineArr[1]);
                     System.out.println("Tlfno " + lineArr[2]);
                 }
-                
+
                 linea = br.readLine();
             }
         } catch (FileNotFoundException e) {
@@ -173,7 +181,7 @@ public class EjercicioRepasoFicheros11Separadores {
                 System.out.println("Error desconocido" + e.getMessage());
             }
 
-        } while (opcion != 3);
+        } while (opcion != 4);
 
     }
 

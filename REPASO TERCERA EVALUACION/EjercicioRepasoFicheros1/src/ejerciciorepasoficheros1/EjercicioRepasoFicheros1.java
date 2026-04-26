@@ -41,11 +41,14 @@ public class EjercicioRepasoFicheros1 {
         String numTelefono = entrada.nextLine();
 
         // Creamos un try-with-resources
-        try (FileWriter fw = new FileWriter("agenda.txt", true); PrintWriter pw = new PrintWriter(fw)) {
+        try (FileWriter fw = new FileWriter("agenda.txt", true); 
+            PrintWriter pw = new PrintWriter(fw)) {
 
             // Añadimos los datos al fichero
-            pw.println("Contacto nombre: " + nombreContacto + " | Edad: " + edad
-                    + " | Número de teléfono: " + numTelefono);
+            pw.println("Contacto nombre: " +nombreContacto);
+            pw.println("Edad: " + edad);
+            pw.println("Tlfno: " + numTelefono);
+            
 
             System.out.println("Contacto añadido");
 
@@ -62,17 +65,9 @@ public class EjercicioRepasoFicheros1 {
      */
     public static void mostrarContenidoFichero() throws FileNotFoundException, IOException {
 
-        // Apuntamos al fichero
-        File fichero = new File("agenda.txt");
-
-        // Comprobamos si existe
-        if (!fichero.exists()) {
-            System.out.println("El fichero no existe aún");
-            return;
-        }
-
         // Creamos un try-witch-resources
-        try (FileReader fr = new FileReader(fichero); BufferedReader br = new BufferedReader(fr)) {
+        try (FileReader fr = new FileReader("agenda.txt"); 
+             BufferedReader br = new BufferedReader(fr)) {
 
             // Creamos la variable linea
             String linea;
@@ -81,7 +76,9 @@ public class EjercicioRepasoFicheros1 {
             // Creamos un while
             while ((linea = br.readLine()) != null) {
                 System.out.println(linea);
+                
             }
+            
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo " + e.getMessage());
         }
@@ -96,17 +93,9 @@ public class EjercicioRepasoFicheros1 {
     public static void mostrarContenidoPorNombre() throws FileNotFoundException, IOException {
         Scanner entrada = new Scanner(System.in);
 
-        // Apuntamos al fichero
-        File fichero = new File("agenda.txt");
-
-        // Comprobamos si existe
-        if (!fichero.exists()) {
-            System.out.println("El fichero aún no existe");
-            return;
-        }
-
         // Creamos un try-with-resources
-        try (FileReader fr = new FileReader(fichero); BufferedReader br = new BufferedReader(fr)) {
+        try (FileReader fr = new FileReader("agenda.txt"); 
+            BufferedReader br = new BufferedReader(fr)) {
 
             // Creamos la variable linea
             String linea;

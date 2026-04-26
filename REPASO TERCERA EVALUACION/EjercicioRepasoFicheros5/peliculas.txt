@@ -1,0 +1,6 @@
+Titulo: star wars
+Año Estreno: 1980
+Género: ciencia-ficcion
+Titulo: el señor de los anillos
+Año Estreno: 2005
+Género: ciencia-ficcion

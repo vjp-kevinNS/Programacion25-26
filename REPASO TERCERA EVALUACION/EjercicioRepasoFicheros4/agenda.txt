@@ -1,0 +1,10 @@
+Nombre: pedro
+Edad: 89
+Tlfno: 234234
+Email: pedro.com
+Ciudad: plasencia
+Nombre: kevin
+Edad: 32
+Tlfno: 132123
+Email: kevin.com
+Ciudad: plasencia
