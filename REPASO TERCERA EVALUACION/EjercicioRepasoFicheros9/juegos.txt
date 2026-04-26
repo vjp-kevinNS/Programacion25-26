@@ -1,0 +1,3 @@
+Nombre: Red Dead Redemption 2
+Plataforma: PS5
+Precio: 100.0

@@ -1,0 +1,6 @@
+Cliente: Pedro
+Producto: Empanadas
+Cantidad: 7
+Cliente: Kevin
+Producto: pizza
+Cantidad: 1

@@ -1,4 +1,4 @@
-package ejerciciorepasoficheros6;
+package ejerciciorepasoficheros9;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,73 +10,71 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Fichero vehiculos.txt:
+ * Fichero: juegos.txt
  *
  * Cada línea:
  *
- * Marca Modelo Año
+ * Nombre Plataforma Precio
  *
  * Opciones:
  *
- * Añadir vehículo
+ * Añadir juego
  *
  * Mostrar todos
  *
- * Buscar por marca
+ * Mostrar juegos de una plataforma
  *
  * Salir
  *
  * @author KevinNS
  */
-public class EjercicioRepasoFicheros6 {
-
-    /**
-     * Método que añade un vehiculo con los datos proporcionados por el usuario
-     *
-     * @throws FileNotFoundException
-     * @throws IOException
-     */
-    public static void añadirVehiculo() throws FileNotFoundException, IOException {
+public class EjercicioRepasoFicheros9 {
+    
+    public static void añadirJuego()throws FileNotFoundException,IOException{
         Scanner entrada = new Scanner(System.in);
-
-        // Pedimos los datos del vehículo
-        System.out.println("Marca del vehículo: ");
-        String marca = entrada.nextLine();
-        System.out.println("Modelo del vehículo: ");
-        String modelo = entrada.nextLine();
-        System.out.println("Año de matriculación: ");
-        int añoMatriculación = entrada.nextInt();
+        
+        // Pedimos los datos del juego
+        System.out.println("Nombre: ");
+        String nombre = entrada.nextLine();
+        System.out.println("Plataforma: ");
+        String plataforma = entrada.nextLine();
+        System.out.println("Precio: ");
+        float precio = entrada.nextFloat();
         entrada.nextLine();
-
-        // Creamos un try with resoruces
-        try (FileWriter fw = new FileWriter("vehiculos.txt", true); PrintWriter pw = new PrintWriter(fw)) {
-
+        
+        // Cremos un try with resources
+        try(FileWriter fw = new FileWriter("juegos.txt", true);
+            PrintWriter pw = new PrintWriter(fw)){
+            
             // Añadimos los datos linea a linea
-            pw.println("Marca: " + marca);
-            pw.println("Modelo: " + marca);
-            pw.println("Año matriculación: " + marca);
-
+            pw.println("Nombre: " + nombre);
+            pw.println("Plataforma: " + plataforma);
+            pw.println("Precio: " + precio);
+            
             System.out.println("----------------------------------------------");
         }
+                
     }
-
+    
     /**
-     * Método que muestra todo el fichero
-     *
+     * Método que muestra el contenido del fichero
+     * 
      * @throws FileNotFoundException
-     * @throws IOException
+     * @throws IOException 
      */
-    public static void mostrarTodos() throws FileNotFoundException, IOException {
-
+    public static void mostrarTodos()throws FileNotFoundException,IOException{
+        
         // Creamos un try with resources
-        try (FileReader fr = new FileReader("vehiculos.txt"); BufferedReader br = new BufferedReader(fr)) {
-
+        try(FileReader fr = new FileReader("juegos.txt");
+            BufferedReader br = new BufferedReader(fr)){
+            
             // Creamos la variable linea
             String linea;
-            System.out.println("----MOSTRANDO TODO----");
-
+            
+            System.out.println("---MOSTRANDO CONTENIDO DEL FICHERO---");
+            
             // Creamos un while
-            while ((linea = br.readLine()) != null) {
+            while ((linea = br.readLine()) != null) {                               
                 System.out.println(linea);
                 linea = br.readLine();
                 System.out.println(linea);
@@ -87,56 +85,59 @@ public class EjercicioRepasoFicheros6 {
             }
         }
     }
-
+    
     /**
-     * Método que muestra los datos del coche buscnado la marca introducida por
+     * Método que muestra los datos del juego por la plataforma introducida por 
      * el usuario
-     *
+     * 
      * @throws FileNotFoundException
-     * @throws IOException
+     * @throws IOException 
      */
-    public static void mostrarPorMarca() throws FileNotFoundException, IOException {
+    public static void mostrarPorPlataforma()throws FileNotFoundException,IOException{
         Scanner entrada = new Scanner(System.in);
-
-        // Pedimos la marca del coche a buscar
-        System.out.println("Introduce la marca del coche: ");
-        String marcaBuscada = entrada.nextLine();
-
+        
+        // Pedimos el nombre de la plataforma
+        System.out.println("Introduce el nombre de la plataforma: ");
+        String nombrePlat = entrada.nextLine();
+        
         // Creamos un try with resources
-        try (FileReader fw = new FileReader("vehiculos.txt"); BufferedReader br = new BufferedReader(fw)) {
-
+        try(FileReader fr = new FileReader("juegos.txt");
+            BufferedReader br = new BufferedReader(fr)){
+            
             // Creamos la variable linea
             String linea;
-
-            System.out.println("---MOSTRANDO POR MARCA---");
-
+            
+            System.out.println("---MOSTRANDO CONTENIDO DEL FICHERO---");
+            
             // Creamos un while
             while ((linea = br.readLine()) != null) {
 
                 // Creamos las variables de los datos
-                String marca = linea;
-                String modelo = br.readLine();
-                String añoMatr = br.readLine();
-
-                if (marca.toLowerCase().contains(marcaBuscada.toLowerCase())) {
-                    System.out.println(" | " + marca + " | " + modelo + " | " + añoMatr);
+                String nombreJuego = linea;
+                String plataforma = br.readLine();
+                String precio = br.readLine();
+                
+                // Creamos un if para introducir el nombre
+                if (plataforma.toLowerCase().contains(nombrePlat)) {
+                    
+                    System.out.println("|" + nombreJuego + "|" + plataforma 
+                            + "|" + precio);
                 }
             }
         }
-
     }
 
     /**
      * Método que muestra el menú
      */
     public static void mostrarMenu() {
-        System.out.println("1.Añadir vehículo");
-        System.out.println("2.Mostrar todas los vehículos");
-        System.out.println("3.Mostrar vehículo por marca");
+        System.out.println("1.Añadir juego");
+        System.out.println("2.Mostrar todas los juegos");
+        System.out.println("3.Mostrar juegos de una plataforma");
         System.out.println("4.Salir");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {  
         Scanner entrada = new Scanner(System.in);
 
         // Creamos el menú controlando excepciones
@@ -148,13 +149,13 @@ public class EjercicioRepasoFicheros6 {
                 opcion = entrada.nextInt();
                 switch (opcion) {
                     case 1:
-                        añadirVehiculo();
+                        añadirJuego();
                         break;
                     case 2:
                         mostrarTodos();
                         break;
                     case 3:
-                        mostrarPorMarca();
+                        mostrarPorPlataforma();
                         break;
                     case 4:
                         System.out.println("Salir del programa....");
