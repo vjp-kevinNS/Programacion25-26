@@ -1,0 +1,3 @@
+Nombre ciudad: plasencia
+Nombre provincia: caceres
+Temperatura: 30.0

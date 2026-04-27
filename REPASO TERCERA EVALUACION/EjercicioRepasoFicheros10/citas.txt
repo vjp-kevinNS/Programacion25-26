@@ -1,0 +1,3 @@
+Nombre paciente: Pepito
+Fecha cita: 1993
+Nombre médico: Dr Fernandez
