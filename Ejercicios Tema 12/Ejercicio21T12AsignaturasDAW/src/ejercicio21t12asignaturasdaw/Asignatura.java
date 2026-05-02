@@ -18,7 +18,7 @@ public class Asignatura {
     public Asignatura() {
         this.nombre = "";
         this.nota = 0;
-    }
+    }  
 
     // Creamos los contructores parametrizados
     public Asignatura(String nombre, double nota) {
@@ -52,8 +52,7 @@ public class Asignatura {
     /**
      * Método para pedir nota
      */
-    public void introducirNota() {
-        Scanner entrada = new Scanner(System.in);
+    public void introducirNota(Scanner entrada) {
 
         boolean valida = false;
 

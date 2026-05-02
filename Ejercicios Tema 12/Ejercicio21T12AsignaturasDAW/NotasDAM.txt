@@ -1,0 +1,6 @@
+Programación:7.0
+Lenguaje de marcas:9.0
+Bases de Datos:6.0
+Entorno de desarrollo:6.0
+Sistemas Informaticos:8.0
+Formación y orientación laboral:0.0
